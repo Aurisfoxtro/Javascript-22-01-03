@@ -11,11 +11,16 @@ img{
 }
 
 div{
-    margin: 0px 350px 0px 350px;
+    margin: 0px 0px 0px 350px;
 }
 
 h1{
     text-align: center;
     font-family:Arial, Helvetica, sans-serif;
     color: rgb(56, 55, 55);
+}
+img:hover{
+    width:300px;
+    height:300px;
+    transition: 1s;
 }
