@@ -1,0 +1,32 @@
+img{
+    width:250px;
+    height:200px;
+    margin: 0px 15px;
+}
+.odd{
+    float:left;
+}
+.even{
+    float:right;
+}
+p{
+    height:220px;
+}
+.p1{
+    color:blue;
+}
+.p2{
+    color:blueviolet;
+}
+.p3{
+    color:coral;
+}
+.p4{
+    color:crimson;
+}
+.p5{
+    color:darkolivegreen;
+}
+.p6{
+    color:darkslategray;
+}
