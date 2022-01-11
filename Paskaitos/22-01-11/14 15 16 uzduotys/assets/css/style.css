@@ -3,6 +3,10 @@
 body{
     background-color: antiquewhite;
 }
+.sekcija1{
+    width:240px;
+    margin:20px auto 20px 20px;
+}
 #sarasas1{
     list-style-type:upper-roman;
     font-family: Arial, Helvetica, sans-serif;
@@ -10,30 +14,41 @@ body{
     font-size: 90%;
     color:rgb(51, 51, 221);
 }
+.sekcija2{
+    width:240px;
+    margin: 20px auto;
+}
 #sarasas2{
     list-style-type:square;
     font-family: 'Luxurious Roman', cursive;
     letter-spacing: 3px;
     font-size: 85%;
     color:rgb(26, 94, 26);
-    /*text-align: center;*/
+}
+.sekcija3{
+    width:240px;
+    margin: 20px 20px 20px auto;
 }
 #sarasas3{
     list-style-type: circle;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 110%;
     color:rgb(81, 5, 114);
-    /* text-align: right; */
+
 }
 form{
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
 }
 .radio{
     text-align: left;
+    padding-left: 10px;
 }
 .forma{
     text-align: center;
+}
+div{
+    width:240px;
+    margin: 5px auto;
 }
 button{
     background-color: forestgreen;
@@ -57,6 +72,5 @@ img{
     float:left;
     width:400px;
     padding-right: 20px;
-    /* border-radius:20px; */
     
 }
