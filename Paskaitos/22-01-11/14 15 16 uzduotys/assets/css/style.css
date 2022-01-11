@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Roboto&display=swap');
+
+body{
+    background-color: antiquewhite;
+}
+#sarasas1{
+    list-style-type:upper-roman;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 90%;
+    color:rgb(51, 51, 221);
+}
+#sarasas2{
+    list-style-type:square;
+    font-family: 'Luxurious Roman', cursive;
+    letter-spacing: 3px;
+    font-size: 85%;
+    color:rgb(26, 94, 26);
+    /*text-align: center;*/
+}
+#sarasas3{
+    list-style-type: circle;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 110%;
+    color:rgb(81, 5, 114);
+    /* text-align: right; */
+}
+form{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.radio{
+    text-align: left;
+}
+.forma{
+    text-align: center;
+}
+button{
+    background-color: forestgreen;
+    color:white;
+    letter-spacing: 2px;
+    border:none;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+label{
+    letter-spacing: 2px;
+}
+.straipsnis{
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    text-align: center;
+}
+img{
+    float:left;
+    width:400px;
+    padding-right: 20px;
+    /* border-radius:20px; */
+    
+}
