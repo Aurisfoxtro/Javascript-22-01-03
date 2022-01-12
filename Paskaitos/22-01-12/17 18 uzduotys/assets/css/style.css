@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Roboto&display=swap');
+
+body{
+    background-color: antiquewhite;
+}
+.sekcija1{
+    height: 100vh;
+    background-image: url("../img/b1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sarasas1{
+    width:240px;
+    margin:0px auto 20px 20px;
+    padding-top: 20px;
+    list-style-type:upper-roman;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 90%;
+    color:rgb(202, 25, 149);
+}
+.sekcija2{
+    height: 100vh;
+    background-image: url("../img/b2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sarasas2{
+    width:240px;
+    margin: 0px auto 20px auto;
+    padding-top: 20px;
+    list-style-type:square;
+    font-family: 'Luxurious Roman', cursive;
+    letter-spacing: 3px;
+    font-size: 85%;
+    color:rgb(26, 94, 26);
+}
+.sekcija3{
+    height: 100vh;
+    background-image: url("../img/b3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sarasas3{
+    width:240px;
+    margin: 0px 20px 20px auto;
+    padding-top: 20px;
+    list-style-type: circle;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 110%;
+    color:rgb(36, 9, 112);
+
+}
+form{
+    font-family: Arial, Helvetica, sans-serif;
+    width:300px;
+    height:220px;
+    background-color: blanchedalmond;
+    margin:0 auto 0 auto;
+}
+.input{
+    height:30px;
+    width:240px;
+}
+.radio{
+    text-align: left;
+    padding-left: 10px;
+}
+.forma{
+    text-align: center;
+    height: 100vh;
+    background-image: url("../img/b4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+div{
+    width:240px;
+    margin: 5px auto;
+}
+button{
+    background-color: rgb(4, 134, 43);
+    height: 30px;
+    width: 150px;
+    color:white;
+    letter-spacing: 2px;
+    border:none;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+button:hover{
+    background-color: black;
+}
+label{
+    letter-spacing: 2px;
+}
+.straipsnis{
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background-image: url("../img/b5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2{
+    text-align: center;
+}
+img{
+    float:left;
+    width:400px;
+    padding-right: 20px;
+    
+}

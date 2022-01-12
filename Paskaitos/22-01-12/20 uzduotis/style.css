@@ -1,0 +1,14 @@
+a{
+    text-decoration: none;
+}
+h2{
+    border-bottom: 1px solid grey;
+    margin-bottom: 5px;
+}
+section{
+    width:900px;
+    margin: 20px auto;
+}
+p.mazas{
+    margin-top: 0;
+}
