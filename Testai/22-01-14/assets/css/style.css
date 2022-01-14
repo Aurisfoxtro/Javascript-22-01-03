@@ -1,0 +1,37 @@
+img{
+    width:200px;
+    height: 200px;
+    /* padding: 0 auto; */
+    /* margin:20 auto; */
+    /* text-align: center; */
+}
+div.stulpelis{
+    /* display:inline-block; */
+    width: 20%;
+    float:left;
+}
+h2{
+    text-align: center;
+    color:red;
+    text-transform: uppercase;
+}
+p{
+    padding: 20px;
+}
+.kvadratas{
+    width:200px;
+    height:200px;
+    margin:20px auto;
+}
+.zydras{
+    background-color: aqua;
+}
+.melynas{
+    background-color: blue;
+}
+.raudonas{
+    background-color: red;
+}
+.pilkas{
+    background-color: grey;
+}
