@@ -1,12 +1,8 @@
-img{
-    width:200px;
-    height: 200px;
-    /* padding: 0 auto; */
-    /* margin:20 auto; */
-    /* text-align: center; */
+body{
+    font-family:Arial, Helvetica, sans-serif;
 }
+
 div.stulpelis{
-    /* display:inline-block; */
     width: 20%;
     float:left;
 }
@@ -15,23 +11,71 @@ h2{
     color:red;
     text-transform: uppercase;
 }
-p{
-    padding: 20px;
+p.aprasymas{
+    padding: 0px 40px;
+}
+p.skaicius{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.z{
+    color:aqua;
+}
+.m{
+    color:blue;
+}
+.r{
+    color:red;
+}
+.p{
+    color:grey;
 }
 .kvadratas{
     width:200px;
     height:200px;
+    border-radius: 5px;
     margin:20px auto;
+    
 }
 .zydras{
     background-color: aqua;
+    background-image: url(../img/cc-apple-pay-brands.svg);
+    background-repeat: no-repeat;
 }
 .melynas{
     background-color: blue;
+    background-image: url(../img/random-solid.svg);
+    background-repeat: no-repeat;
 }
 .raudonas{
     background-color: red;
+    background-image: url(../img/university-solid.svg);
+    background-repeat: no-repeat;
 }
 .pilkas{
     background-color: grey;
+    background-image: url(../img/users-solid.svg);
+    background-repeat: no-repeat;
+}
+.apskritimas{
+    width:40px;
+    height:40px;
+    border-radius: 100%;
+    background-color: white;
+    position:relative;
+    left:40px;
+    top:40px;
+}
+.zydram{
+    border: 4px solid aqua;
+}
+.melynam{
+    border: 4px solid blue;
+}
+.raudonam{
+    border: 4px solid red;
+}
+.pilkam{
+    border: 4px solid grey;
 }
