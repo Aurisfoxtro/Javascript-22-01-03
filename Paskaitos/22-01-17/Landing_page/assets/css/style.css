@@ -385,10 +385,15 @@ p{
     padding-top: 80px;
     padding-bottom: 80px;
 }
-.statistic_block{
+#statistic-holder{
     text-align: center;
-    display: inline-block;
-    /* float:left; */
+}
+.statistic-block{
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    width:290px;
+    float:left;
 }
 .statistic-number{
     color:#fff;
