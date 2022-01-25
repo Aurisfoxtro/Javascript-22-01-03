@@ -559,7 +559,7 @@ p{
 #portfolio{
     padding-top: 80px;
 }
-#portfolio .titlebar h2::after{
+.titlebar h2::after{
     display:block;
     content:"";
     height:2px;
@@ -615,6 +615,37 @@ p{
 }
 .portfolio-item a{
     cursor: url(../img/pointer.png),crosshair;
+}
+#contact-info{
+    padding-top:80px;
+    padding-bottom: 30px;
+}
+.contact-info-row{
+    display: flex;
+}
+.contact-info{
+    width: 25%;
+    margin-bottom: 40px;
+}
+.contact-info i{
+    font-size: 55px;
+    color: #ffc400;
+}
+.contact-info h4{
+    color:#222;
+    font-size:18px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.contact-info p{
+    color:#666;
+    font-size:16px;
+    line-height:24px;
+    font-weight: 300;
+}
+.contact-info a{
+    color:#ffc400;
+    font-weight: 700;
 }
 
 #contact {
