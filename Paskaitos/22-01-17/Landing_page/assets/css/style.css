@@ -639,8 +639,9 @@ p{
     opacity: 1;
     bottom:0;
 }
-.hover-overlay .item-overlay:hover .hover-overlay img{
+.hover-overlay:hover img{
     transform: scale(1.2);
+    transition: all 400ms ease-out;
 }
 .overlay-content{
     overflow: hidden;
@@ -672,6 +673,73 @@ p{
     font-size:15px;
     font-weight:400;
     text-transform: uppercase;
+}
+#team{
+    padding-top:80px;
+    padding-bottom: 30px;
+}
+.team_members_item{
+    width:25%;
+    float:left;
+    padding-right:15px;
+    padding-left:15px;
+    position:relative;
+}
+.team-member{
+    margin-bottom: 50px;
+}
+.team-member .img-responsive{
+    display:inline-block;
+    max-width: 100%;
+    height: auto;
+    padding-top: 0px;
+}
+.team-img-meta h5{
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 20px 0px 10px 0px;
+    font-size: 14px;
+}
+.team-img-meta h6{
+    font-size:14px;
+    color: #ffc400;
+    text-transform: uppercase;
+    font-weight: 400;
+    /* margin-bottom: 10px; */
+}
+.team-img-meta p{
+    color:#757575;
+    font-size:16px;
+    line-height:24px;
+    font-weight: 300;
+}
+.team-member-socials{
+    text-align: right;
+    display:inline-block;
+    margin: 10px auto;
+}
+.team-member-socials li{
+    float: left;
+    display:inline-block;
+    vertical-align: top;
+    width:auto;
+    clear: none;
+}
+.page_social{
+    width: 30px;
+    height: 30px;
+    color:#666;
+    font-size:16px;
+    text-align:center;
+    display:block;
+    text-decoration:none;
+    margin: 0px 3px 5px;
+    border-radius: 50%;
+    transition: all 250ms ease-in-out;
+}
+
+.contacts iframe{
+    display:block;
 }
 #contact-info{
     padding-top:80px;
