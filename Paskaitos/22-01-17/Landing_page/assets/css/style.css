@@ -611,7 +611,7 @@ p{
     position:relative;
 }
 .img-responsive{
-    display:block;
+    display:block !important;
     max-width:100%;
     height: auto;
 }
@@ -683,7 +683,7 @@ p{
     float:left;
     padding-right:15px;
     padding-left:15px;
-    position:relative;
+    /* position:relative; */
 }
 .team-member{
     margin-bottom: 50px;
@@ -724,6 +724,10 @@ p{
     vertical-align: top;
     width:auto;
     clear: none;
+}
+.img-block{
+    display:block;
+    height:fit-content;
 }
 .page_social{
     width: 30px;
