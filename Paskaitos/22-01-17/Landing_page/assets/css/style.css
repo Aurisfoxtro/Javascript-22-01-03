@@ -678,6 +678,9 @@ p{
     padding-top:80px;
     padding-bottom: 30px;
 }
+.team_members_wrapper{
+    height:75vh;
+}
 .team_members_item{
     width:25%;
     float:left;
@@ -726,8 +729,8 @@ p{
     clear: none;
 }
 .img-block{
+    height: 263px;
     display:block;
-    height:fit-content;
 }
 .page_social{
     width: 30px;
@@ -741,7 +744,98 @@ p{
     border-radius: 50%;
     transition: all 250ms ease-in-out;
 }
-
+#pricing{
+    background-color:#f5f5f5;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    height:120vh;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+#price_1,
+#price_2,
+#price_3,
+#price_4{
+    margin-bottom: 50px;
+    padding: 0px 5px;
+    width: 25%;
+    float:left;
+}
+.pricing-table{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.pricing-table h3{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+.pricing-table .price{
+    background-color: #eee;
+    height: 120px;
+    color: #222;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    line-height: 120px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.price-row .price sup{
+    top: -35px;
+    font-size: 30px;
+    font-weight: 300;
+}
+sub, sup{
+    position:relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+.price-row .price span{
+    font-size: 75px;
+}
+.pricing-table ul.features{
+    color: #333;
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 5px 40px;
+}
+.pricing-table ul.features li {
+    border-bottom: 1px solid #ccc;
+    padding: 13px 0px;
+}
+.pricing-table .button{
+    margin: 30px 0px;
+}
+.pricing-table.highlight{
+    background-color: #ffc400;
+    border-color: #d9a701;
+}
+.pricing-table.highlight .price{
+    background-color: #d9a701;
+    color: #fff;
+    border-color: #d9a701;
+}
+#clients{
+    height:80vh;
+    padding-top: 80px;
+    padding-bottom: 150px;
+    position:relative;
+}
+.owl-item{
+    width:190px;
+    float:left;
+}
+.owl-buttons{
+    width:15px;
+    height:20px;
+    background-color: #ffc400;
+    color: #fff;
+}
 .contacts iframe{
     display:block;
 }
