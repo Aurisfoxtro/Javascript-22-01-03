@@ -826,15 +826,33 @@ sub, sup{
     padding-bottom: 150px;
     position:relative;
 }
+.owl-carousel{
+    height: 140px;
+}
+.owl-wrapper-outer{
+    height: 100%;
+}
 .owl-item{
     width:190px;
     float:left;
 }
 .owl-buttons{
-    width:15px;
-    height:20px;
+    text-align: center;
+    margin-top:50px;
+}
+.owl-buttons a{
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 800;
+    line-height: 35px;
+    width:30px;
+    height:35px;
     background-color: #ffc400;
     color: #fff;
+}
+.owl-buttons a:hover{
+    background-color: #b18803;
 }
 .contacts iframe{
     display:block;
