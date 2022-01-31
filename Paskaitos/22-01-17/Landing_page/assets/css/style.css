@@ -723,7 +723,7 @@ p{
 }
 .team-member-socials li{
     float: left;
-    display:inline-block;
+    /* display:inline-block; */
     vertical-align: top;
     width:auto;
     clear: none;
@@ -974,4 +974,87 @@ sub, sup{
     justify-content: center;
     margin-top: 17px;
 }
-
+#footer{
+    padding-top: 80px;
+    padding-bottom: 60px;
+    background-color: #262626;
+}
+#newsletter{
+    margin-bottom: 10px;
+}
+#newsletter h3{
+    color:#ddd;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 5px;
+}
+#newsletter p{
+    color:#ddd;
+    line-height: 26px;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+#newsletter_form{
+    margin: 15px auto;
+    width: 50%;
+}
+#newsletter form input[type="email"]{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 74%;
+    color: #414141;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 10px 15px;
+    border-radius: 6px 0 0 6px;
+}
+#newsletter form input[type="submit"]{
+    width:25%;
+    background-color: #ffc400;
+    border: 1px solid #ffc400;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: 900;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border-radius: 0 6px 6px 0;
+}
+#newsletter form input:hover[type="submit"]{
+    background-color: #b18803;
+    cursor: pointer;
+}
+#footer_copyright p{
+    color:#ddd;
+    line-height: 40px;
+}
+#footer_copyright p span{
+    color:#ffc400;
+    font-size: 15px;
+    font-weight:800;
+}
+.contact-socials {
+    display:inline-block;
+}
+.contact-socials li{
+    float:left;
+    width:auto;
+    /* display:inline-block; */
+    vertical-align: top;
+    clear: none;
+    padding: 0;
+}
+.foo_social{
+    text-align: center;
+    color:#999;
+    width:40px;
+    height:40px;
+    font-size: 18px;
+    line-height: 40px;
+    margin: 0px 5px;
+    display:block;
+    text-decoration: none;
+    border-radius: 50%;
+}
