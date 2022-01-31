@@ -30,8 +30,19 @@ var pirmas = randomSkaicius(0,25);
 var antras = randomSkaicius(0,25);
 var trecias = randomSkaicius(0,25);
 
+var minimumas = Math.min(pirmas,antras,trecias);
+var maksimumas = Math.max(pirmas, antras, trecias);
+
 console.log('Pirmas skaičius: ' + pirmas);
 console.log('Antras skaičius: ' + antras);
 console.log('Trečias skaičius: ' + trecias);
-console.log('Minimumas: ' + Math.min(pirmas,antras,trecias));
-console.log('Maksimumas: ' + Math.max(pirmas, antras, trecias));
+console.log('Minimumas: ' + minimumas);
+console.log('Maksimumas: ' + maksimumas);
+
+if ((pirmas > minimumas) && (pirmas < maksimumas)){
+    console.log('Pirmasis skaičius yra vidurinis: ' + pirmas);
+} else if ((antras > minimumas) && (antras < maksimumas)){
+    console.log('Antrasis skaičius yra vidurinis: ' + antras);
+} else if ((trecias > minimumas) && (trecias < maksimumas)){
+    console.log('Trečiasis skaičius yra vidurinis: ' + trecias);
+} else console.log ('Vidurinės reikšmės negalima nustatyti')
