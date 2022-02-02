@@ -50,7 +50,13 @@ header{
     top:0;
     left:0;
     width:100%;
-    z-index: 100;    
+    z-index: 100;
+    transition: 200ms ease-in-out;    
+}
+.scrolled{
+    background-color: rgba(30, 30, 30);
+    padding: 0px;
+    transition: 200ms ease-in-out;
 }
 nav{
     max-width: 1170px;
