@@ -68,10 +68,9 @@ console.log('Vidurkis: ' + Math.round(vidurkis) + ', apkarpytas vidurkis: ' + Ma
 
 //--------------------------------------------------------------------------------------------
 
-document.getElementById('input').addEventListener('keydown', ()=> {
+document.getElementById('input').addEventListener('keyup', ()=> {
 
     let text = document.getElementById('input').value;
-    console.log(text);
     document.getElementById('output').innerHTML = text;
     
 })
