@@ -29,7 +29,7 @@ for (let i = 0; i < 300; i++){
         sum_150++;
     if (number > 275)
         span.classList.add('red');
-    document.body.appendChild(span);
+    document.getElementById('main_answer').appendChild(span);
 }
 document.getElementById('answer').innerText = 'Didesnių skaičių už 150: ' + sum_150;
 
@@ -93,12 +93,21 @@ for(let i = 0; i < 300; i++){
     let top = randomSkaicius(0,550);
     let left = randomSkaicius(0,550);
     console.log('Top: ' + top + ' Left: ' + left);
-    // document.getElementById('canvas').innerHTML = `<div style="height:5px; width:5px; position:absolute; background-color: red; border: 1px solid #333; top:${top}; left:${left};"></div>`;
     
     let square = document.createElement('div');
-    square.innerHTML = `<div style="height:5px; width:5px; position:absolute; background-color: red; border: 1px solid #333; top:${top}; left:${left};></div>`;
+    square.style.height = '5px'
+    square.style.width = '5px'
+    square.style.position = 'absolute'
+    square.style.backgroundColor = 'red'
+    square.style.border = '1px'
+    square.style.borderStyle = 'solid'
+    square.style.borderColor = '#333'
+    square.style.left = `${left}px`
+    square.style.top = `${top}px`
+
     document.getElementById('canvas').appendChild(square);
     
     if (top > 495 || left > 495) out_sum++;
 }
-console.log ('Out sum: ' + out_sum);
+
+document.getElementById('out_sum').innerText = 'Išėjo už kraštų: ' + out_sum;
