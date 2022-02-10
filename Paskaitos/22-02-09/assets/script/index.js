@@ -60,6 +60,25 @@ unique_sum++;
 
 console.log('Unikalių reikšmių masyve: ' + unique_sum);
 
+//------------------------------papildymas---------------------------------------------
+let kombinuotas_masyvas = [];
+
+array1.forEach((reiksme, indeksas)=>{
+
+    if(array1[indeksas]!= array2[indeksas]
+        && array1[indeksas]!=array3[indeksas]
+        && array2[indeksas]!=array3[indeksas])
+        kombinuotas_masyvas = array1[indeksas] + array2[indeksas] + array3[indeksas];
+})
+
+console.log('Kombinuotas masyvas su po vieną nesikartojančiomis reikšmėmis:');
+console.log(kombinuotas_masyvas);
+
+let unique = array_sum.filter( (val, key, array) => {
+    return array.indexOf(val) === key;
+});
+
+console.log('Unikalių kombinacijų masyve: ' + unique.length)
 //------------------------------------(4)-----------------------------------------------
 
 let array_n1 = [];
