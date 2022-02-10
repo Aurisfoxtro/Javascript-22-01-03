@@ -2,13 +2,22 @@
 // Neigiamas – „Blogas“, teigiamas „Geras“. Pasitikrinkite: Kai n = 20, turėtume gauti: 
 // Skaičius geras.
 
+let skaicius = 20;
 
+if(skaicius < 0) console.log('Skaičius ' + skaicius + ' yra blogas.');
+else if(skaicius > 0) console.log('Skaičius ' + skaicius + ' yra geras.');
+else console.log('Skaičius yra ' + skaicius);
 
 // 2. Mokinys eina gatve ir prieina sankryžą reguliuojamą šviesoforu. Sudarykite programą, 
 // kuri nustatytu, kaip turi pasielgti mokinys? Žinome šviesoforo spalvos kodą n, 1-žalia, 2-
 // geltona, 3-raudona. Pasitikrinkite: Kai n= 2, turėtume gauti: Palaukite.
 
+let spalva = 2;
 
+if (spalva == 1) console.log('Eikite.');
+else if (spalva == 2) console.log('Pasiruoškite.');
+else if (spalva = 2) console.log('Laukite.');
+else console.log('Pasirinkite reikšmę nuo 1 iki 3.')
 
 // 3. Gintautas planuoja persikraustyti į naujus namus ir jam reikia sudėti visas turimas knygas 
 // į dėžes. Gintautas turi d dėžių ir k knygų. Parašykite programą, kuri apskaičiuotų, ar 
@@ -16,7 +25,12 @@
 // Kai d=2, k=8, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos telpa į dėžes; kai 
 // d=3, k=18, n=5 tuomet ekrane turi būti rodomas pranešimas: Knygos netelpa į dėžes;
 
+let dezes = 2;
+let talpa = 5;
+let knygos = 8;
 
+if(knygos <= dezes*talpa) console.log('Knygos telpa į dėžes.');
+else console.log('Knygos netelpa į dėžes.');
 
 // 4. Skaičius skaitomas skaitmenimis iš abiejų galų vienodai vadinamas polindromu. Pvz.: 
 // 121. Žinomas 4-klis natūralus skaičius n. Nustatykite ar skaičius yra polindromas. 
@@ -60,7 +74,10 @@ else console.log(bil + ' bilietas nelaimingas.')
 // keliamieji, jei dalūs iš 4. Pasakykite, ar metai m yra keliamieji ar paprastieji? 
 // Pasitikrinkite: Kai m = 2004, turi būti spausdinama: Metai keliamieji.
 
+let met = 2004;
 
+if(met % 4 == 0 && met % 100 != 0) console.log('Metai yra keliamieji.')
+else console.log('Metai yra paprastieji.')
 
 // 7. Skaičius skaitomas skaitmenimis iš abiejų galų vienodai vadinamas polindromu. Pvz.: 
 // 121. Žinomas 5-klis natūralus skaičius n. Nustatykite ar skaičius yra polindromas. 
