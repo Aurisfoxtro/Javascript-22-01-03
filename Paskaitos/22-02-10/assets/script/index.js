@@ -31,5 +31,5 @@ for (i = 0; i < 101; i++){
     }
 }
 console.log(unique_array);
-sorted_array = unique_array.sort();
+sorted_array = unique_array.sort(function(a,b){return a-b});
 console.log(sorted_array);

@@ -211,6 +211,18 @@ console.log('-----------------------');
 // }
 // console.log(Skaitmenų suma bus ${suma1}) 
 
+//------------------------------------------------
+
+// const skaiciai = 54087;
+// let work = skaiciai
+// let naujas = 0
+
+// while(work != 0) {
+//     naujas = naujas* 10 + work % 10
+//     work = Math.floor(work/ 10)
+// }
+// console.log(Originalus skaičius yra ${skaiciai} atvirkšinis skaičius būtų ${naujas})
+
 
 // 19. Duotas natūralus skaičius n. Sudarykite programą, kuri rastų didžiausią ir mažiausią 
 // skaitmenį.
