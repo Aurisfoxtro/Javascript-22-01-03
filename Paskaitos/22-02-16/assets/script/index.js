@@ -235,14 +235,50 @@ console.log(wallet2);
 //16. Į piniginės popierinių pinigų skyrelį įdėti 500 pinigų mažom kupiūrom ( generuoti atsitiktinius skaičius nuo 3 iki 10 ir dėti kaip naujus elementus, kol įdėta suma bus lygi 500);
 console.log('--------------------16------------------------');
 
+let deposit = 500;
+let amount;
 
-
+while(deposit > 0){
+    amount = rand(3, 10);
+    wallet2[1].push(amount);
+    deposit -= amount;
+}
+console.log(wallet2);
 //17. Patikrinti ar ką nors laimėjote. Bilieto numerius dalinkite iš 777 ir jeigu numeris išsidalins be liekanos - jūs laimėjote! Suskaičiuokite, kiek buvo laimingų bilietų.
 console.log('--------------------17------------------------');
 
+count = 0;
 
-
+for(i = 0; i < wallet[3].length; i++){
+    if(wallet[3][i] % 777 == 0){
+        console.log('Jūs laimėjote.');
+        count++;
+    }
+}
+console.log('Turite', count, 'laimingų bilietų.');
 //18. Sukurkite penktą skyrelį ir į jį sudėkite nuotraukas: ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'] ir jas išrūšiuokite pagal žodžių ilgį taip, kad pirma eitų trumpiausi žodžiai;
 console.log('--------------------18------------------------');
 
+wallet2[4] = [];
 
+let photos = ['šuo', 'katė', 'automobilis', 'namas', 'kiemas'];
+let photos_length = photos.length;
+let min_length;
+let min_index;
+let min;
+
+for(let j = 0; j < photos_length; j++){
+    min = photos[0];
+    min_length = photos[0].length;
+    min_index = 0;
+    for (let i = 1; i < photos.length; i++){
+        if(photos[i].length < min_length){
+            min_length = photos[i].length;
+            min = photos[i];
+            min_index = i;
+        }
+    }
+    wallet2[4].push(min);
+    photos.splice(min_index,1);   
+}
+console.log(wallet2);
