@@ -1,0 +1,13 @@
+UL{
+    text-align: center;
+}
+.container{
+    background-color: #eeee44;
+}
+.container-fluid{
+    background-color: #ff00aa;
+}
+.first{
+    background-color: #000;
+    color: #fff;
+}
