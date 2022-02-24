@@ -1,0 +1,53 @@
+.container-fluid{
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    color: #aaa;
+}
+.nav ul{
+    list-style: none;
+}
+.nav li{
+    display:inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #eee;
+}
+.nav a{
+    text-decoration: none;
+    color: #aaa;
+    
+}
+.welcome{
+    background-color: orangered;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 0px 10px 5px;
+    
+}
+.main{
+    background-color: #eee;
+    padding-top: 20px;
+}
+.sidebar ul{
+    list-style: none;    
+}
+.sidebar{
+    background-color: cadetblue;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 30px;
+    padding-top: 20px;
+    height: 300px;
+}
+.first_article{
+    margin-top: 30px;
+}
+p{
+    color: #aaa;
+}
+.footer{
+    background-color: #eee;
+    height: 100px;
+}

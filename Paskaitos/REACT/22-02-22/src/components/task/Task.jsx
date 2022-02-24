@@ -1,6 +1,8 @@
+import {ListGroup} from "react-bootstrap";
+
 function Task(){
     return(
-        <li>Sukurti Layout</li>
+        <ListGroup.Item>Sukurti Layout</ListGroup.Item>
     )
 }
 
