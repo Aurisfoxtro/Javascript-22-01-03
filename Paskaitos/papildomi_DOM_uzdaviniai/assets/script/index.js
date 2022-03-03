@@ -84,10 +84,60 @@ console.log(document.querySelectorAll('ul#zoliaedziai > li.new').length);
 
 //3. Elementų events
 //a. Padaryti tai ką liepia mygtukai Header1 sekcijoje;
-//b. Padaryti, kad paspaudus ant i tago jis pakeistų fonto svorį į bold;
-//c. Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
-//d. Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css savybė color = orange;
-//e. Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
-//f. Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su id contacts savybės būtų panaikintos https://stackoverflow.com/questions/18691655/remove-style-on-element
-//g. Padaryti tai ką liepia mygtukai Header2 sekcijoje;
+function paintGreen(){
+    document.getElementsByTagName('h1')[0].style.color = 'green';
+}
+document.getElementById("h1-color").addEventListener('click', paintGreen);
 
+function setTo10(){
+    document.getElementsByTagName('h1')[0].style.fontSize = '10px';
+}
+document.getElementById("h1-font").addEventListener('click', setTo10);
+
+//b. Padaryti, kad paspaudus ant i tago jis pakeistų fonto svorį į bold;
+function bolder(){
+    document.getElementsByTagName('i')[0].style.fontWeight = 'bold';
+}
+document.getElementsByTagName('i')[0].addEventListener('click', bolder);
+
+//c. Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
+
+function changeGrey(){
+    document.querySelectorAll('.prices').forEach(e=>e.style.backgroundColor = 'grey')
+}
+function changeWhite(){
+    document.querySelectorAll('.prices').forEach(e=>e.style.backgroundColor = 'white')
+}
+if(document.querySelectorAll('.prices')[0].style.backgroundColor == 'white'){
+    document.querySelectorAll('.prices').forEach(e=>e.addEventListener('click', changeGrey));
+}else{
+    document.querySelectorAll('.prices').forEach(e=>e.addEventListener('click', changeWhite));
+}
+
+// ???????????????
+
+//d. Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css savybė color = orange;
+
+function paintOrange(){
+    document.getElementById('contacts').style.color = 'orange';
+}
+document.getElementById('contacts').addEventListener('click', paintOrange);
+
+//e. Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
+
+
+
+//f. Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su id contacts savybės būtų panaikintos https://stackoverflow.com/questions/18691655/remove-style-on-element
+
+
+
+//g. Padaryti tai ką liepia mygtukai Header2 sekcijoje;
+function returnColor(){
+    document.getElementsByTagName('h1')[0].style.color = 'darkgreen';
+}
+document.getElementById('h1-color-back').addEventListener('click', returnColor);
+
+function returnFont(){
+    document.getElementsByTagName('h1')[0].style.fontSize = '2em';
+}
+document.getElementById('h1-font-back').addEventListener('click', returnFont);
