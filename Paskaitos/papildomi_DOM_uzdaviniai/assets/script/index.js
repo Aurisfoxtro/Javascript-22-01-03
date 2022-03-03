@@ -102,19 +102,28 @@ document.getElementsByTagName('i')[0].addEventListener('click', bolder);
 
 //c. Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
 
-function changeGrey(){
-    document.querySelectorAll('.prices').forEach(e=>e.style.backgroundColor = 'grey')
-}
-function changeWhite(){
-    document.querySelectorAll('.prices').forEach(e=>e.style.backgroundColor = 'white')
-}
-if(document.querySelectorAll('.prices')[0].style.backgroundColor == 'white'){
-    document.querySelectorAll('.prices').forEach(e=>e.addEventListener('click', changeGrey));
-}else{
-    document.querySelectorAll('.prices').forEach(e=>e.addEventListener('click', changeWhite));
+// function changeGrey(){
+//     document.querySelectorAll('.prices').forEach(e=>e.style.backgroundColor = 'grey')
+// }
+// function changeWhite(){
+//     document.querySelectorAll('.prices').forEach(e=>e.style.backgroundColor = 'white')
+// }
+// if(document.querySelectorAll('.prices')[0].style.backgroundColor == ''){
+//     document.querySelectorAll('.prices').forEach(e=>e.addEventListener('click', changeGrey));
+// }else{
+//     document.querySelectorAll('.prices').forEach(e=>e.addEventListener('click', changeWhite));
+// }
+
+function changeColor(){
+    let elem = document.querySelectorAll('.prices')[0].style.backgroundColor;
+    if(elem == 'white' || elem == undefined || elem == '' || elem == null){
+        document.querySelectorAll('.prices')[0].style.backgroundColor = 'grey';
+    }else{
+        document.querySelectorAll('.prices')[0].style.backgroundColor = 'white'; 
+    }
 }
 
-// ???????????????
+document.querySelectorAll('.prices')[0].addEventListener('click', changeColor);
 
 //d. Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css savybė color = orange;
 
@@ -125,11 +134,19 @@ document.getElementById('contacts').addEventListener('click', paintOrange);
 
 //e. Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
 
-
+function enlarge(){
+    document.getElementById('contacts').style.fontSize = '20px';
+}
+document.querySelector('#contacts > u').addEventListener('click', enlarge);
 
 //f. Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su id contacts savybės būtų panaikintos https://stackoverflow.com/questions/18691655/remove-style-on-element
 
-
+function remove(ev){
+    document.querySelectorAll('#contacts')[0].style.fontSize = '16px';
+    document.querySelectorAll('#contacts')[0].style.color = 'black';
+    ev.stopPropagation();
+}
+document.querySelectorAll('#contacts > b')[0].addEventListener('click', remove);
 
 //g. Padaryti tai ką liepia mygtukai Header2 sekcijoje;
 function returnColor(){
@@ -141,3 +158,84 @@ function returnFont(){
     document.getElementsByTagName('h1')[0].style.fontSize = '2em';
 }
 document.getElementById('h1-font-back').addEventListener('click', returnFont);
+
+//4. Elementų grupių events
+//a. Padaryti, kad dukartus paspaudus ant naujų gyvūnų jie nusispalvintu raudonai https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+
+function paintRed(){
+    document.querySelectorAll('li.new').forEach(e=>e.style.color = 'red');
+}
+document.querySelectorAll('li.new').forEach(e=>e.addEventListener('dblclick', paintRed));
+
+//b. Padaryti, kad paspaudus ant gyvūno jis būtų atvaizduojamas 130% didesniu fonto dydžiu. “PATINKA” tas neturi galioti.
+
+function changeFont(){
+    document.querySelectorAll('li:not(.like-button').forEach(e=>e.style.fontSize = '130%');
+}
+
+document.querySelectorAll('li:not(.like-button)').forEach(e=>e.addEventListener('click', changeFont));
+
+//c. Padaryti, kad paspaudus ant “PATINKA”, atitinkamai (tėvinei) sekcijai būtų priskirta klasė like;
+
+function addToClass(arg){
+    document.querySelector(`#${arg} .like-button`).parentNode.classList.add('like');
+    // console.log(document.querySelector('.like-button').parentNode);
+}
+
+// document.querySelector('#zirafos .like-button').addEventListener('click', addToClass('zirafos'));
+// document.querySelector('#plesrunai .like-button').addEventListener('click', addToClass('plesrunai'));
+// document.querySelector('#gyvates .like-button').addEventListener('click', addToClass('gyvates'));
+// document.querySelector('#zoliaedziai .like-button').addEventListener('click', addToClass('zoliaedziai'));
+
+document.querySelectorAll('.animals > ul').forEach(e=>{
+    e.querySelector('.like-button').addEventListener('click', ()=>{
+        e.classList.add('like');
+    })
+})
+
+//5. Dinaminis elementų kūrimas (su createElement)
+//a. Dinamiškai su JS pridėti naują kainą “Senjorai tik: 1.99 eur”;
+
+let par = document.createElement('h2');
+par.innerText = 'Senjorai tik 1.99 eur';
+document.querySelector('.prices').appendChild(par);
+
+//b. Dinamiškai su JS Pridėti naują kainą “Senjorų grupė iki 10: tik 5.99 eur” Padaryti, kad pridėtas elementas turėtų klasę new ir ant jo paklikinus jis pasidarytų žalias;
+
+let para = document.createElement('h2');
+para.innerText = "Senjorų grupė iki 10: tik 5.99 eur";
+para.classList.add('new');
+para.addEventListener('click', ()=>{para.style.backgroundColor = 'green'});
+document.querySelector('.prices').appendChild(para);
+
+//c. Dinamiškai su JS kiekvienoje gyvūnų kategorijoje po “PATINKA” pridėkite dar vieną li elementą “NEPATINKA”, kurį paspaudus atitinkamoje sekcijoje būtų nuimta klasė like
+
+const allUlDom = document.querySelectorAll('.animals > ul');
+    allUlDom.forEach(e => {
+        const likeBtnDom = e.querySelector('.like-button');
+        const li = document.createElement('li');
+        const txt = document.createTextNode('NEPATINKA');
+        li.appendChild(txt);
+        li.addEventListener('click', () =>  e.classList.remove('like'));
+        likeBtnDom.after(li);
+    });
+
+//d. Dinamiškai su JS sukurkite naują mygtukų grupę HEADER 3 naudojant analogišką html tagų struktūrą kaip ir HEADER 1 ir HEADER 2. Pirmas mygtukas vadintųsi, “Pabraukti H1 tagą”, o antras “Nepabraukti H1 tagą”. Mygtukai turi daryti tai kas ant jų parašyta
+
+const fieldset = document.createElement('fieldset');
+const legend = document.createElement('legend');
+const btn1 = document.createElement('button');
+const btn2 = document.createElement('button');
+const btnText1 = document.createTextNode('Pabraukti H1 tagą');
+const btnText2 = document.createTextNode('Nepabraukti H1 tagą');
+const legendText = document.createTextNode('HEADER 3');
+legend.appendChild(legendText);
+fieldset.appendChild(btn1);
+fieldset.appendChild(btn2);
+btn1.appendChild(btnText1);
+btn2.appendChild(btnText2);
+fieldset.appendChild(legend);
+document.getElementById('contacts').before(fieldset);
+
+btn1.addEventListener('click', () => document.querySelector('h1').style.textDecoration = 'underline');
+btn2.addEventListener('click', () => document.querySelector('h1').style.textDecoration = 'none');
