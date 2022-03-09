@@ -11,7 +11,7 @@ const Movie = (props)=>{
                 <Card.Text>Trukmė:{props.runtime}</Card.Text>
                 <Card.Text>Režisierius:{props.director}</Card.Text>
                 <Card.Text>Aktoriai:{props.actors}</Card.Text>
-                <Card.Text>IMDB reitingas:{props.rated}</Card.Text>
+                <Card.Text>IMDB reitingas:{props.ratings}</Card.Text>
                 
             </Card.Body>
         </Card>

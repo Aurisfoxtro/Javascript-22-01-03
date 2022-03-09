@@ -6,12 +6,12 @@ import {Spinner} from "react-bootstrap";
 function Main() {
 
   const [movies, setMovie] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('terminator');
   const handleInputChange = (e)=>{
-    console.log('e:',e)
+    // console.log('e:',e)
     setSearchTerm(e.target.value)
   }
-console.log('searchTerm', searchTerm)
+// console.log('searchTerm', searchTerm)
   // const filteredMovies = PostsData.filter((movie)=>{
   //   return movie.title.includes(searchTerm)
 
@@ -27,25 +27,28 @@ console.log('searchTerm', searchTerm)
     }, [])
 
     console.log(movies);
+    console.log(movies.length);
+    console.log(movies != null);
 
     return (
       <div className="container">
           <Search onSearch={handleInputChange} val={searchTerm}/>
 
-          {(movies.length)?movies.map(movie=>
+            {(movies != null)?movies.map(movie=> 
                 <Movie
-                    title={movie.title}
-                    poster={movie.poster}
-                    runtime={movie.runtime}
-                    director={movie.director}
-                    actors={movie.actors}
-                    rated={movie.rated}
-                />):
-                (
-                  <Spinner animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                  </Spinner>
-              )}
+                    title={movie.Title}
+                    poster={movie.Poster}
+                    runtime={movie.Runtime}
+                    director={movie.Director}
+                    actors={movie.Actors}
+                    ratings={movie.Ratings.Value}
+                    />
+                ):
+                 (
+                   <Spinner animation="border" role="status">
+                       <span className="visually-hidden">Loading...</span>
+                   </Spinner>
+               )}
 
       </div>
     );
