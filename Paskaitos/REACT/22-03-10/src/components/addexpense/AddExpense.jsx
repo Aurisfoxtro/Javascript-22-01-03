@@ -15,7 +15,7 @@ const AddExpense = () =>{
             [e.target.name]:e.target.value
         })
     }
-    console.log(items);
+    console.log('Items:', items);
 
     return(
         <>

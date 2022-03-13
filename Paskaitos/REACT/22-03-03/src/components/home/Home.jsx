@@ -3,10 +3,14 @@ import {Row} from "react-bootstrap"
 import {Spinner} from "react-bootstrap"
 import Cat from "../cat/Cat";
 // 
-// import Search from '../search/Search';
+import Search from '../search/Search';
 // 
 const Home = ()=>{
     const [cats, setCats] = useState([]);
+
+    // 
+    const[search, setSearch] = useState('');
+    // 
 
     useEffect(()=>{
         try{
