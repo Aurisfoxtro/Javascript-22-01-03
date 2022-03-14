@@ -1,14 +1,23 @@
-import {Card, Table, Button} from "react-bootstrap";
+import {Card, Button} from "react-bootstrap";
 import React, {useState} from "react";
-import Expense from "../expense/Expense";
 import AddExpense from "../addexpense/AddExpense";
+import ExpensesTable from "../expensesTable/ExpensesTable";
 
 const Expenses = ()=>{
     const[addExpense, setAddExpense] = useState(false);
+    const [expenses, setExpenses] = useState([]);
+
+    const saveExpenseHandler = (data) =>{
+        setExpenses((prevData)=>{
+            return [data, ...prevData]
+        })
+        setAddExpense(false);
+    }
+    console.log('expenses:',expenses);
     return(
         <>
             {/* jei addExpense yra true, parodo forma*/}
-            {(addExpense) && <AddExpense/>}
+            {(addExpense) && <AddExpense onSave={saveExpenseHandler}/>}
             <Card>
                 <Card.Header>
                     {(addExpense)?
@@ -21,25 +30,7 @@ const Expenses = ()=>{
                     <h3>Išlaidų sąrašas:</h3>
                 </Card.Header>
                 <Card.Body>
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Išlaidų tipas</th>
-                                <th>Aprašymas</th>
-                                <th>Suma</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                            </tr>
-                        </tbody>
-
-                    </Table>
+                   <ExpensesTable data={expenses}/>
                 </Card.Body>
             </Card>
         </>

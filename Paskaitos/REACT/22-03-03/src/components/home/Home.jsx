@@ -4,13 +4,9 @@ import {Spinner} from "react-bootstrap"
 import Cat from "../cat/Cat";
 // 
 import Search from '../search/Search';
-// 
+//
 const Home = ()=>{
     const [cats, setCats] = useState([]);
-
-    // 
-    const[search, setSearch] = useState('');
-    // 
 
     useEffect(()=>{
         try{
@@ -25,24 +21,34 @@ const Home = ()=>{
     console.log(cats);
     //--------------------
 
-    // const [searchTerm, setSearchTerm] = useState('');
-    // const handleInputChange = (e)=>{
-    //     // console.log(e)
-    //     setSearchTerm(e.target.value)
-    // }
-    // // console.log(searchTerm)
-    // const filteredPosts = PostsData.filter((post)=>{
-    //     return post.title.includes(searchTerm)
-    // })
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleInputChange = (e)=>{
+        // console.log(e)
+        setSearchTerm(e.target.value)
+    }
+    console.log('Paieškos eilutė: ', searchTerm)
+    const filteredCats = cats.filter((cat)=>{
+        return cat.name.includes(searchTerm)
+    })
 
     //-------------------- 
     return(
         <>
         {/*  */}
-            {/* <Row>
+            <Row>
                 <Search onSearch={handleInputChange} val={searchTerm}/>
-                <Posts posts={filteredPosts}/>
-            </Row> */}
+                {console.log('Atrinktos katės: ', filteredCats)}
+                
+                {(filteredCats.length)?filteredCats.map(cat =>
+                <Cat
+                    key={cat.id}
+                    name={cat.name}
+                    image={cat.image}
+                    origin={cat.origin}
+                />):
+                <p>Ieškokite katės</p>
+                }
+            </Row>
         {/*  */}
             <Row>
                 {(cats.length)?cats.map(cat=>

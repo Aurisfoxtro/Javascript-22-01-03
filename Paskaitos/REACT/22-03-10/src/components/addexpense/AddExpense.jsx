@@ -1,7 +1,8 @@
 import {Card, Form, Button, FloatingLabel} from "react-bootstrap";
 import React, {useState} from "react";
+import { propTypes } from "react-bootstrap/esm/Image";
 
-const AddExpense = () =>{
+const AddExpense = (props) =>{
     const[items, setItems] = useState({
         date:'',
         type:'',
@@ -15,6 +16,11 @@ const AddExpense = () =>{
             [e.target.name]:e.target.value
         })
     }
+
+    const submitHandler = (e) =>{
+        e.preventDefault();
+        props.onSave(items)
+    }
     console.log('Items:', items);
 
     return(
@@ -24,7 +30,7 @@ const AddExpense = () =>{
                     Pridėkite išlaidas į išlaidų sąrašą
                 </Card.Header>
                 <Card.Body>
-                    <Form>
+                    <Form onSubmit={submitHandler}>
                         <Form.Group className="mb-3">
                             <Form.Label>Pasirinkite datą:</Form.Label>
                             <Form.Control type="date" name="date" value={items.date} onChange={handleChange}/>
@@ -53,7 +59,7 @@ const AddExpense = () =>{
                             <Form.Label>Išlaidų suma</Form.Label>
                             <Form.Control type="text" name="amount" value={items.amount} onChange={handleChange}/>
                         </Form.Group>
-                        <Button>Saugoti</Button>
+                        <Button type="submit">Saugoti</Button>
                     </Form>
                 </Card.Body>
             </Card>

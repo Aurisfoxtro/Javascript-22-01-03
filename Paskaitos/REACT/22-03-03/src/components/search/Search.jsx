@@ -10,7 +10,7 @@
 
 const Search = ({val, onSearch, ...props})=>{
     return(
-        <div className="search">
+        <div className="search mb-5">
             <input
             value = {val}
             className = "form-control"
