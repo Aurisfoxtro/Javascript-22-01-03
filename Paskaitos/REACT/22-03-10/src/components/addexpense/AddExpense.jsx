@@ -1,7 +1,10 @@
 import {Card, Form, Button, FloatingLabel} from "react-bootstrap";
 import React, {useState} from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
-
+import Error from "../error/Error";
+//
+import expenseValidation from "../../utilities/expenseValidation";
+//
 const AddExpense = (props) =>{
     const[items, setItems] = useState({
         date:'',
@@ -9,6 +12,7 @@ const AddExpense = (props) =>{
         description:'',
         amount:''
     })
+    const [errors, setErrors] = useState('');
 
     const handleChange =(e)=> {
         setItems({
@@ -19,10 +23,15 @@ const AddExpense = (props) =>{
 
     const submitHandler = (e) =>{
         e.preventDefault();
-        props.onSave(items)
+        const validate = expenseValidation(items); //validuojam duomenis
+        // console.log(validate)
+        setErrors(validate) //setinam state klaidas
+        if(Object.keys(errors).length !== 0){ //tikrinam ar yra klaidu
+            props.onSave(items)
+        }
     }
     console.log('Items:', items);
-
+    console.log(errors);
     return(
         <>
             <Card>
@@ -30,6 +39,9 @@ const AddExpense = (props) =>{
                     Pridėkite išlaidas į išlaidų sąrašą
                 </Card.Header>
                 <Card.Body>
+                    {errors &&
+                        Object.keys(errors).map(keyName=>(<Error error={errors[keyName]}/>))
+                    }
                     <Form onSubmit={submitHandler}>
                         <Form.Group className="mb-3">
                             <Form.Label>Pasirinkite datą:</Form.Label>

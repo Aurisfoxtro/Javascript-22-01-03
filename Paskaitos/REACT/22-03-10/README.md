@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+C - Create Expense in DB
+R - Read Expense from DB
+U - Update Expense in DB
+D - Delete Expense from DB
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
