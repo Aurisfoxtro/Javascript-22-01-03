@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom"
+
 const Expense = (props) =>{
     return(
         <tr>
@@ -5,6 +7,8 @@ const Expense = (props) =>{
             <td>{props.type}</td>
             <td>{props.description}</td>
             <td>{Number.parseFloat(props.amount).toFixed(2)}</td>
+            <td><Link key={props.id} to={`expense/update/${props.id}`}>Redaguoti</Link></td>
+            <td><Link key={props.id} to={`expense/delete/${props.id}`}>Šalinti</Link></td>
         </tr>
     )
 }

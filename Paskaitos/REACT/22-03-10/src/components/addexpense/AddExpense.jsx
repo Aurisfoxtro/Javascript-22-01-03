@@ -2,8 +2,11 @@ import {Card, Form, Button, FloatingLabel} from "react-bootstrap";
 import React, {useState} from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 import Error from "../error/Error";
+import {useParams, useNavigate} from "react-router-dom";
+import * as services from '../../services/expensesServices'
 //
 import expenseValidation from "../../utilities/expenseValidation";
+import { useEffect } from "react";
 //
 const AddExpense = (props) =>{
     const[items, setItems] = useState({
@@ -13,6 +16,13 @@ const AddExpense = (props) =>{
         amount:''
     })
     const [errors, setErrors] = useState('');
+    const {id}=useParams();
+    const navigate = useNavigate();
+    console.log(`Puiku gavau dokumento ID: ${id}`)
+
+    useEffect(()=>{
+        id && services.getExpenseById(item=>setItems(item),id)
+    }, [id])
 
     const handleChange =(e)=> {
         setItems({
@@ -27,9 +37,16 @@ const AddExpense = (props) =>{
         // console.log(validate)
         setErrors(validate) //setinam state klaidas
         if(Object.keys(errors).length !== 0){ //tikrinam ar yra klaidu
-            props.onSave(items)
+            // props.onSave(items)  // duomenu isvedimas su validacija
         }
+        props.onSave(items)  //klaida validacijoje pasitikrinti
     }
+
+    const updateHandler =()=>{
+        services.updateExpense(id, items)
+        navigate("/")
+    }
+
     console.log('Items:', items);
     console.log(errors);
     return(
@@ -71,7 +88,10 @@ const AddExpense = (props) =>{
                             <Form.Label>Išlaidų suma</Form.Label>
                             <Form.Control type="text" name="amount" value={items.amount} onChange={handleChange}/>
                         </Form.Group>
-                        <Button type="submit">Saugoti</Button>
+                        {(id)?
+                            <Button onClick={updateHandler}>Atnaujinti</Button>:
+                            <Button type="submit">Saugoti</Button>
+                        }
                     </Form>
                 </Card.Body>
             </Card>

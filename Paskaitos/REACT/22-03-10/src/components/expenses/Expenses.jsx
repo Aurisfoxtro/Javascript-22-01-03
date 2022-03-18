@@ -1,5 +1,5 @@
 import {Card, Button} from "react-bootstrap";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import AddExpense from "../addexpense/AddExpense";
 import ExpensesTable from "../expensesTable/ExpensesTable";
 import * as service from "../../services/expensesServices";
@@ -9,12 +9,19 @@ const Expenses = ()=>{
     const [expenses, setExpenses] = useState([]);
 
     const saveExpenseHandler = (data) =>{
+        
         setExpenses((prevData)=>{
+
             return [data, ...prevData]
         })
+        console.log(expenses)
         service.addExpense(data); //sukuria firebase irasa
         setAddExpense(false);
     }
+    useEffect(()=>{
+        service.getAllExpenses(expenses=>
+            setExpenses(expenses))
+    }, [])
     console.log('expenses:',expenses);
     return(
         <>
