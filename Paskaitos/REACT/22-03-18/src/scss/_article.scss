@@ -1,0 +1,7 @@
+main{
+    article{
+        a{
+            @include super-button(#eedd66, 10px);
+        }
+    }
+}

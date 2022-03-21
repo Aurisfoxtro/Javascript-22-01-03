@@ -1,0 +1,13 @@
+@import '~bootstrap'; //po sudiegimo npm i bootsrap, importuojame bootsrap
+//variables
+@import 'var';
+//Base
+@import 'base';
+//components
+@import 'components/error';
+@import 'mixins/button';
+//Main navigation
+@import 'nav';
+@import 'todo';
+@import 'article';
+@import 'menulist';

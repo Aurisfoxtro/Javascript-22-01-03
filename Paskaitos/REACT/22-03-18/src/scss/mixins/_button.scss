@@ -1,0 +1,6 @@
+@mixin super-button($color, $radius){ //mixinams galima paduoti parametrus
+    border-radius: $radius;
+    background-color: $color;
+    padding: 5px;
+    text-align: center;
+}

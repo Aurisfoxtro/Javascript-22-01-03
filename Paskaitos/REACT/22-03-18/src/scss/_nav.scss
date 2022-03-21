@@ -1,0 +1,21 @@
+.nav{
+    background-color: $navBg;
+    li{
+        list-style: none;
+        padding: 10px;
+        display: inline-block;
+        @media (min-width:300px){
+            display:block;
+        }
+        background-color: $navItemBg;
+        a{
+            color: $linkColor;
+            text-align:center;
+            text-decoration: none;
+            text-transform: uppercase;
+            &:hover{
+                color:$linkColorHover;
+            }
+        }
+    }
+}

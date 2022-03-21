@@ -11,7 +11,14 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_students__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/students */ "./src/modules/students.js");
 
-console.log(_modules_students__WEBPACK_IMPORTED_MODULE_0__["default"]);
+console.log(_modules_students__WEBPACK_IMPORTED_MODULE_0__["default"]); // let list = document.createElement('ul');
+// document.getElementsByTagName('body')[0].appendChild(list);
+// for(let i = 0; i < students.length; i++){
+//     let list_item = document.createElement('li');
+//     list_item.innerText = students[i].name;
+//     document.getElementsByTagName('ul')[0].appendChild(list_item);
+// }
+
 /*
 Išvesti studentus HTML sąraše
 */
