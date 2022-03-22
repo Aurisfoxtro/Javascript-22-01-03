@@ -22,6 +22,184 @@ console.log(_modules_students__WEBPACK_IMPORTED_MODULE_0__["default"]); // let l
 /*
 Išvesti studentus HTML sąraše
 */
+//Template literals
+
+var name = "Jonas";
+var lname = "Jonaitis";
+var kiekis = 12;
+var kaina = 14;
+console.log('Labas, mano vardas' + name + ', o pavarde' + lname);
+console.log("Mano vardas ".concat(name, ", o pavarde ").concat(lname));
+console.log("Suma yra: ".concat(kiekis * kaina)); //Object destructing
+//Array
+
+var kiekis2 = 12,
+    pavadinimas = 'Kompiuteris',
+    kaina2 = 123.456;
+kiekis2 = 14;
+console.log(kaina2);
+console.log(kiekis2); //Object
+
+var student = {
+  id: 5,
+  firstName: 'Karolis',
+  lname: 'Petraitis',
+  average: 8
+};
+var id = student.id,
+    fn = student.firstName,
+    ln = student.lname;
+console.log(fn); //for of, for in
+
+var items = [1, true, 'Ieva'];
+
+for (var _i = 0, _items = items; _i < _items.length; _i++) {
+  var element = _items[_i];
+  //'in' isveda indeksus, 'of' naudojam tik su masyvais
+  console.log(element);
+}
+
+for (var _element in items) {
+  console.log(items[_element]);
+}
+
+var students2 = [{
+  id: 1,
+  firstName: 'Jonas',
+  lname: 'Jonaitis',
+  school: 'BIT'
+}, {
+  id: 2,
+  firstName: 'Petras',
+  lname: 'Petraitis',
+  school: 'BIT'
+}, {
+  id: 3,
+  firstName: 'Vardenis',
+  lname: 'Pavardenis',
+  school: 'BIT'
+}];
+
+for (var _i2 = 0, _students = students2; _i2 < _students.length; _i2++) {
+  var _student = _students[_i2];
+  console.log(_student);
+}
+
+for (var _i3 = 0, _students2 = students2; _i3 < _students2.length; _i3++) {
+  var _student2 = _students2[_i3];
+
+  //galim naudoti of nes turim objektu masyva
+  for (var studentData in _student2) {
+    //naudojam 'in' nes dirbam su objektais, paima object keys
+    console.log(_student2[studentData]);
+  }
+}
+
+var students3 = [{
+  id: 1,
+  firstName: 'Jonas',
+  lname: 'Jonaitis',
+  shool: 'BIT',
+  subjects: {
+    js: 10,
+    react: 8,
+    vue: 5
+  }
+}, {
+  id: 2,
+  firstName: 'Petras',
+  lname: 'Petraitis',
+  shool: 'BIT',
+  subjects: {
+    js: 6,
+    react: 5,
+    vue: 2
+  }
+}, {
+  id: 3,
+  firstName: 'Vardenis',
+  lname: 'Pavardenis',
+  shool: 'BIT',
+  subjects: {
+    js: 10,
+    react: 10,
+    vue: 7
+  }
+}];
+
+for (var _i4 = 0, _students3 = students3; _i4 < _students3.length; _i4++) {
+  var _student3 = _students3[_i4];
+
+  for (var _studentData in _student3) {
+    // console.log(student[studentData]);
+    if (_studentData == 'subjects') {
+      console.log('Mokomieji dalykai:');
+
+      for (var subject in _student3[_studentData]) {
+        console.log("".concat(subject, ": ").concat(_student3[_studentData][subject]));
+      }
+    } else {
+      console.log(_student3[_studentData]);
+    }
+  }
+} //Spread operator
+
+
+function sum(first, second) {
+  console.log(first + second);
+}
+
+sum(12, 14);
+
+function sum2() {
+  for (var _len = arguments.length, numbers = new Array(_len), _key = 0; _key < _len; _key++) {
+    numbers[_key] = arguments[_key];
+  }
+
+  var total = numbers.reduce(function (x, y) {
+    return x + y;
+  });
+  console.log(total);
+}
+
+sum2(12, 45, 78, 56, 14, 78); //Scopes(galiojimo sritis): globalus, funkcijos, bloko {}
+
+var count = 13; //globalus scope, globaliam bloke
+
+if (count) {
+  var _count = 12;
+} else {
+  var _count2 = 18;
+}
+
+console.log(count);
+var data2 = ['IBM', 'APPLE', 'DELL'];
+
+for (var i = 0; i < data2.length; i++) {
+  // let block scope, var netiktu
+  for (var _i5 = 0; _i5 < data2.length; _i5++) {// var netiktu double deklaration
+  }
+}
+
+function sum3() {
+  var test = 'string'; //funkcijos scope
+
+  return test;
+} //Includes
+
+
+var data = ['Ieva', 'Tomas', 'Karolis'];
+
+if (data.includes('Tomas')) {
+  console.log('Kontaktas surastas');
+} else {
+  console.log('Kontaktas nerastas');
+} //self invoking function, pati save kviecia, uzdaro koda savyje, del security naudojama.
+
+
+(function () {
+  console.log('testas');
+})();
 
 /***/ }),
 
