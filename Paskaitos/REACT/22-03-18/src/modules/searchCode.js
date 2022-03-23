@@ -12,6 +12,7 @@ const searchCode = ()=>{
             .then(()=>{
                 document.querySelector('.result').value = searchResponse.data[0].post_code;
             })
+            .catch(()=>{alert('Pašto kodas nerastas.')})
     })
 }
 

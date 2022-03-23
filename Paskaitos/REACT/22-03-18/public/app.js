@@ -418,6 +418,8 @@ var searchCode = function searchCode() {
       return console.log('Pašto kodas:', searchResponse.data[0].post_code);
     }).then(function () {
       document.querySelector('.result').value = searchResponse.data[0].post_code;
+    })["catch"](function () {
+      alert('Pašto kodas nerastas.');
     });
   });
 };
