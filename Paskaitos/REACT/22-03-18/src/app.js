@@ -1,4 +1,8 @@
 import students from "./modules/students"
+import Demo from "./modules/demo"
+import renderForm from "./modules/renderForm"
+import searchCode from "./modules/searchCode"
+
 
 console.log(students)
 
@@ -199,3 +203,11 @@ if(data.includes('Tomas')){
 (function (){
     console.log('testas');
 })();
+
+//demo failiukas kvieciamas
+Demo();
+
+//pasto kodo paieskos app
+
+renderForm();
+searchCode();
