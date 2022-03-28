@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function Form() {
+function Form(props) {
 
     const [rows, setRows] = useState('');
     const [columns, setColumns] = useState('');
@@ -10,10 +10,12 @@ function Form() {
         // console.log(e);
         // console.log(e.target[0].value);
         // console.log(e.target[1].value);
-        setRows(()=> e.target[0].value);
-        setColumns(()=> e.target[1].value);
+        setRows(e.target.rows.value);
+        setColumns(e.target.columns.value);
         console.log('Rows:', rows);
         console.log('Columns:', columns);
+        const data = {rows: rows, columns: columns}
+        props.onSaveData(data);
     }
 
     return (
