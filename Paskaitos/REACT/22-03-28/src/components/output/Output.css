@@ -1,0 +1,12 @@
+.output_container{
+    width: 32%;
+    height: 140px;
+    margin: 1%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.output{
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+}
