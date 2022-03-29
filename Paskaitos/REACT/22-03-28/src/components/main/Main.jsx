@@ -6,7 +6,7 @@ import Output from "../output/Output";
 
 function Main() {
 
-    const [contact, setContact] = useState({});
+    const [contact, setContact] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const clickHandler = () => {
       setShowForm(true);
@@ -17,7 +17,7 @@ function Main() {
         ...receivedContact,
         id: Math.random().toString()
       }
-      setContact(contact)
+      setContact((prevData)=> [contact, ...prevData])
       console.log('Contact', contact)
     }
     console.log('State contact:', contact);
@@ -30,7 +30,7 @@ function Main() {
             {(!showForm)&&<button onClick={clickHandler} className="btn btn-primary">Naujas kontaktas</button>
             }
             {(showForm)&& <Form onDataSave={onDataSaveHandler}/>}
-            <Output content={contact}/>
+            {(contact.length !== 0)? contact.map((c)=> <Output key = {c.id} content={c}/>):null}
         </div>
       </>
     );

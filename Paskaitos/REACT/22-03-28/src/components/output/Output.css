@@ -1,9 +1,10 @@
 .output_container{
-    width: 32%;
+    width: 31%;
     height: 140px;
     margin: 1%;
     border: 1px solid black;
     border-radius: 10px;
+    float: left;
 }
 .output{
     display: inline-block;

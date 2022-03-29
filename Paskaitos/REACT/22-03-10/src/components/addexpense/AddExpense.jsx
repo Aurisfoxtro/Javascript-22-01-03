@@ -1,6 +1,5 @@
 import {Card, Form, Button, FloatingLabel} from "react-bootstrap";
 import React, {useState} from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
 import Error from "../error/Error";
 import {useParams, useNavigate} from "react-router-dom";
 import * as services from '../../services/expensesServices'
