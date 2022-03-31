@@ -34,7 +34,8 @@ const Login=()=>{
         login(credentials.email, credentials.password)
     }
 
-    console.log(credentials);
+    console.log(user);
+
     return(
         <>
             <h2 className="text-center mt-3">Prisijungti</h2>

@@ -22,7 +22,7 @@ const Expenses = ()=>{
         service.getAllExpenses(expenses=>
             setExpenses(expenses))
     }, [])
-    console.log('expenses:',expenses);
+    // console.log('expenses:',expenses);
     return(
         <>
             {/* jei addExpense yra true, parodo forma*/}
