@@ -13,7 +13,7 @@ const ExpensesTable =(props)=>{
 
     useEffect(()=>{
         id && services.deleteExpense(id)
-        navigate('/')
+        navigate('/expenses')
     }, [id])
 
     return(

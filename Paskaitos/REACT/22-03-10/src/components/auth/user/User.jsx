@@ -13,9 +13,11 @@ const User = ()=>{
     useEffect(()=>{
         if(loading) return
         if(!user) navigate('/')
-        userServices.getUserData(user, setUserData)
+        if(user){
+            userServices.getUserData(user, setUserData)
+        }
 
-    }, [userData])
+    }, [userData]) // [user, loading] dependancies deleted 
 
     console.log(userData);
     return(
