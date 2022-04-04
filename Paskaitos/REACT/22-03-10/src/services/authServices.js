@@ -32,11 +32,21 @@ const logout = ()=>{
     auth.signOut();
 }
 
+const resetPassword = async (email)=>{
+    try{
+        await auth.sendPasswordResetEmail(email)
+        alert("Slaptažodžio priminimas išsiųstas")
+    }catch(err){
+        console.log(err);
+    }
+}
+
 export default firebase
 export {
     auth,
     db,
     register,
     login,
-    logout
+    logout,
+    resetPassword
 }

@@ -59,6 +59,12 @@ const Login=()=>{
                     />
                 </Form.Group>
                 <Button type="submit">Prisijungti</Button>
+                <div>
+                    <ul>
+                        <li>Neturite paskyros? <Link to="/register">Registruokitės</Link></li>
+                        <li>Pamiršote slaptažodį? <Link to="/reset">Atstatykite</Link></li>
+                    </ul>
+                </div>
             </Form>
         </>
     )

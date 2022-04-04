@@ -6,7 +6,7 @@ function Main() {
   return (
     <div className="container">
       <div className="search-box">
-        <Autocomplete />
+        <Search />
       </div>
       <Movie />
     </div>

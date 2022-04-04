@@ -31,7 +31,7 @@ const ExpensesTable =(props)=>{
         <tbody>
             
             {/* {(expenses.length)? */}
-            {props.data.map((ex, i) =>
+            {props.data && props.data.map((ex, i) =>
             <Expense
                 key={i} //identifikatorius padidejantis per vieneta
                 id={ex.id}

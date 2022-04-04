@@ -3,8 +3,11 @@ import React, {useState, useEffect} from "react";
 import AddExpense from "../addexpense/AddExpense";
 import ExpensesTable from "../expensesTable/ExpensesTable";
 import * as service from "../../services/expensesServices";
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth} from '../../services/authServices'
 
 const Expenses = ()=>{
+    const [user, error, loading] = useAuthState(auth);
     const[addExpense, setAddExpense] = useState(false);
     const [expenses, setExpenses] = useState([]);
 
@@ -19,10 +22,13 @@ const Expenses = ()=>{
         setAddExpense(false);
     }
     useEffect(()=>{
-        service.getAllExpenses(expenses=>
-            setExpenses(expenses))
-    }, [])
+        if(loading) return
+        if(user){
+            service.getAllExpenses(setExpenses, user)
+        }
+    }, [user, loading])
     // console.log('expenses:',expenses);
+    console.log('vartotojo duomenys', user);
     return(
         <>
             {/* jei addExpense yra true, parodo forma*/}

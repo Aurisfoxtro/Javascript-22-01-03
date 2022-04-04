@@ -7,7 +7,12 @@ import * as services from '../../services/expensesServices'
 import expenseValidation from "../../utilities/expenseValidation";
 import { useEffect } from "react";
 //
+import authServices from '../../services/authServices';
+import {auth} from '../../services/authServices';
+import {useAuthState} from 'react-firebase-hooks/auth';
+
 const AddExpense = (props) =>{
+    const [user, loading, error] = useAuthState(auth);
     const[items, setItems] = useState({
         date:'',
         type:'',
@@ -22,6 +27,14 @@ const AddExpense = (props) =>{
     useEffect(()=>{
         id && services.getExpenseById(item=>setItems(item),id)
     }, [id])
+
+    useEffect(()=>{
+        if(loading) return
+        setItems({
+            ...items,
+            'uid':user.uid
+        })
+    },[user])
 
     const handleChange =(e)=> {
         setItems({

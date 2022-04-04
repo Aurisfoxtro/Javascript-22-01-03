@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import{Navbar, NavDropdown} from 'react-bootstrap';
+import{Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import{useAuthState} from "react-firebase-hooks/auth";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import { auth, logout } from '../../../services/authServices';
 import * as userServices from "../../../services/userServices";
 
@@ -12,20 +12,21 @@ const User = ()=>{
     const navigate = useNavigate();
     useEffect(()=>{
         if(loading) return
-        if(!user) navigate('/')
-        if(user){
+        if(!user){
+            navigate('/')
+        }else{
             userServices.getUserData(user, setUserData)
         }
 
-    }, [userData]) // [user, loading] dependancies deleted 
+    }, [user, loading]) // [user, loading, userData] dependancies deleted 
 
-    console.log(userData);
+    console.log('useris', userData);
     return(
         <>
         {(user)?
         <Navbar.Collapse className="justify-content-end">
-            <NavDropdown title="Vardenis pavardenis" id="basic-nav-dropdown">
-                <NavDropdown.Item>vardenis@kazkas.lt</NavDropdown.Item>
+            <NavDropdown title={userData.name} id="basic-nav-dropdown">
+                <NavDropdown.Item>{userData.email}</NavDropdown.Item>
                 <NavDropdown.Divider/>
                 <NavDropdown.Item onClick={logout}>Atsijungti</NavDropdown.Item>
             </NavDropdown>
