@@ -1,11 +1,15 @@
 import "./Message.css"
 import {Button} from "react-bootstrap";
+import { useState } from "react";
 
 const Message = (props)=>{
 
-    const likeButtonHandler = () => {
-        
+    const [likes, setLikes] = useState(0);
+
+    const likesClickHandler = () =>{
+        setLikes(likes + 1)
     }
+    console.log('Likes:', likes);
 
     return(
         <>
@@ -14,8 +18,8 @@ const Message = (props)=>{
                 <h3>{props.title}</h3>
                 <div>{props.desc}</div>
                 <div className="likes-container">
-                    <div>Likes: {props.likes}</div>
-                    <Button onClick={likeButtonHandler} className="btn btn-info">Like</Button>
+                    <div>Likes: {likes}</div>
+                    <Button onClick={likesClickHandler} className="btn btn-info m-2">Like</Button>
                 </div>
             </div>
         </>
