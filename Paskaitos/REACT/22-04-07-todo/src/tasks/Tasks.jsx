@@ -16,6 +16,7 @@ const Tasks = () =>{
             <ListGroup>
                 {(tasks) && tasks.map((task, i) => <Task
                 key= {i}
+                id={task.id}
                 title = {task.title}
                 desc = {task.desc}
                 />)}

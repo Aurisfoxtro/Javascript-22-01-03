@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../context/TasksContext"
 const AddTask = () =>{
     const {addTask, closeForm} = useGlobalContext();
     const [newTask, setNewTask] = useState({
+        'id':Math.random().toString(16).slice(2),
         'title': '',
         'desc': ''
     })
