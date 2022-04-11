@@ -5,26 +5,28 @@ import ExpensesTable from "../expensesTable/ExpensesTable";
 import * as service from "../../services/expensesServices";
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {auth} from '../../services/authServices'
+import { useGlobalContext } from "../../context/ExpensesContext";
 
 const Expenses = ()=>{
+    const {expenses, allExpenses} = useGlobalContext();
     const [user, error, loading] = useAuthState(auth);
     const[addExpense, setAddExpense] = useState(false);
-    const [expenses, setExpenses] = useState([]);
+    // const [expenses, setExpenses] = useState([]);
 
     const saveExpenseHandler = (data) =>{
         
-        setExpenses((prevData)=>{
+        // setExpenses((prevData)=>{
 
-            return [data, ...prevData]
-        })
-        console.log(expenses)
+        //     return [data, ...prevData]
+        // })
+        // console.log(expenses)
         service.addExpense(data); //sukuria firebase irasa
         setAddExpense(false);
     }
     useEffect(()=>{
         if(loading) return
         if(user){
-            service.getAllExpenses(setExpenses, user)
+            service.getAllExpenses(allExpenses, user) //vietoj allExpenses setExpenses buvo
         }
     }, [user, loading])
     // console.log('expenses:',expenses);
