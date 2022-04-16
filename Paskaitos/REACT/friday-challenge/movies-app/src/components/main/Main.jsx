@@ -5,7 +5,6 @@ import Search from '../search/Search';
 import {useState, useEffect} from 'react';
 
 function Main() {
-  // let slicedMovies = [];
   
   const [searchTerm, setSearchTerm] = useState('');
   
@@ -18,16 +17,7 @@ function Main() {
     console.log(e.target.value)
     setSearchTerm(e.target.value)
   }
-    // useEffect(()=>{
-    //     try{
-    //     fetch(`https://api.themoviedb.org/3/search/movie?api_key=f81053f8495120bde8069d2bb86d703f&language=en-US&query=${searchTerm}`)
-    //         .then(response=>response.json())
-    //         .then(data=>setAllMovies(data.results))
-    //     }catch(msg){
-    //         console.log(msg)
-    //     }
-    // }, [searchTerm])
-
+   
     useEffect(()=>{
     if(searchTerm.length > 2){  
       try{
@@ -37,17 +27,15 @@ function Main() {
       }catch(msg){
           console.log(msg)
       }
+      setSlicedMovies(allMovies.slice(0,8));
+    }else{
+      setSlicedMovies([]);
     }
-    setSlicedMovies(allMovies.slice(0,8));
-    // slicedMovies = allMovies.slice(0,8);
+    
     },[searchTerm])
   
     console.log('Movies: ', allMovies);
-    
-    // (allMovies.length > 0) && (slicedMovies = allMovies.slice(0,8));
     console.log('sliced movies:', slicedMovies);
-
-    // let chosenMovie = {}
 
     const [chosenMovie, setChosenMovie] = useState({
       title: '',
@@ -61,13 +49,7 @@ function Main() {
 
     const choiseHandler =(title, rating, year, language, votes, overview, image)=>{
       console.log('title:', title);
-      // chosenMovie.title = title;
-      // chosenMovie.rating = rating;
-      // chosenMovie.year = year;
-      // chosenMovie.language = language;
-      // chosenMovie.votes = votes;
-      // chosenMovie.overview = overview;
-      // chosenMovie.image = image;
+      
       setChosenMovie({
         title: title,
         rating: rating,
