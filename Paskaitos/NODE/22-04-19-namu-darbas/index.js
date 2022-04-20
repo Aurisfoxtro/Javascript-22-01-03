@@ -8,4 +8,6 @@ cat.showCat();
 cat.feed(5);
 cat.showCat();
 cat.sleep(5);
+cat.spendTime(10);
 cat.showCat();
+console.table(cat);

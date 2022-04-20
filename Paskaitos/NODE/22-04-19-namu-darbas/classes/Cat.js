@@ -1,6 +1,6 @@
 class Cat {
     
-    constructor(tiredness, hunger, lonliness){
+    constructor(tiredness = 0, hunger = 0, lonliness = 0){//jei nenurodomi parametrai inicijuojant objekta, imamos default reiksmes 0
 
         this.tiredness = tiredness;
         this. hunger = hunger;
@@ -8,7 +8,7 @@ class Cat {
         this.happiness = Math.floor((tiredness + hunger + lonliness)/3)
     }
     
-    feed(amount){
+    feed(amount = 1){ //by default, jei nenurodomas parametras amount bus lygus 1
         this.hunger = this.hunger - amount;
         if(this.hunger < 0) this.hunger = 0;
     }
@@ -42,7 +42,13 @@ class Cat {
         if(this.lonliness == 2) console.log("Cat had company long time ago.")
         if(this.lonliness == 3) console.log("Cat is lonely.")
         if(this.lonliness >= 4) console.log("Cat is very lonely.")
+        if(this.happiness == 0) console.log("Cat is very happy.")
+        if(this.happiness == 1) console.log("Cat is happy.")
+        if(this.happiness == 2) console.log("Cat is content.")
+        if(this.happiness == 3) console.log("Cat is unhappy.")
+        if(this.happiness >= 4) console.log("Cat is very unhappy.")
         console.log("------------------------")
+        
     }
 }
 
