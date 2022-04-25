@@ -14,11 +14,13 @@ class Krepsinis{
 
     init(){
         // while(Krepsinis.laikrodis < 2000){
-            console.log(this)
+            // console.log(this)
             let timeoutID = setTimeout(() => {this.play()}, Krepsinis.atakos_laikrodis)
-            console.log("timeout veikia", Krepsinis.laikrodis)
-            clearTimeout(timeoutID)
+            // let timeoutID = setTimeout(() => console.log('Testas'), 0);
+            // console.log("timeout veikia", Krepsinis.laikrodis)
+            // clearTimeout(timeoutID)
             console.log(this)
+            console.log(Krepsinis)
         // }
     }
 

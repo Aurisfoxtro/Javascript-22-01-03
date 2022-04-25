@@ -53,3 +53,4 @@ rl.question('Įveskite skaičių nuo: ', digitfrom =>{
 // }
 
 //Production enviroment - kodas kuris yra paruostas vartojimui
+//Developmental enviroment - kodas kuris yra gaminamas arba testuojamas
