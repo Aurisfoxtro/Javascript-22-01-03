@@ -2,6 +2,11 @@ import express from 'express'
 import {dirname} from 'path'
 import { fileURLToPath } from 'url'
 
+import { appendFile } from 'fs'
+import { readFile } from 'fs'
+import fs from 'fs/promises'
+
+
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const credentials = {
@@ -59,6 +64,12 @@ console.log(import.meta)
           data.phone = req.query.phone;
           data.email = req.query.email;
           console.log(data);
+
+          appendFile('./database.json', JSON.stringify(data), (err)=>{
+              if(err) throw err;
+              console.log('Duomenys įrašyti į failą')
+          })
+
           res.send('Duomenys sekmingai priimti')
       }else{
           res.send('Nera gauti pilni duomenys')
@@ -88,8 +99,39 @@ console.log(import.meta)
         // res.send('Neužpildyti prisijungimo duomenys')
     }
 })
+
+    
+
   app.get('/clients', (req, res)=>{
-      res.send('Klientai')
+    // res.send('Klientai:')
+    
+    let jsondata = { 
+        name: '',
+        surname: '',
+        address: '',
+        phone: '',
+        email: ''
+    }
+    
+    let output = ``
+
+    // let data = await fs.readFile('./database.json', 'utf8')
+    readFile('./database.json', 'utf8', (err, data) =>{
+        if (err) throw err;
+        console.log('data from a file: ', data)
+        jsondata = JSON.parse(data)
+        console.log('jsondata', jsondata)
+        // console.log('inside name: ', jsondata.name) 
+   
+        // console.log('name: ', jsondata.name)
+
+        output = `</br><table><tr><th>Name</th><th>Surname</th><th>Address</th><th>Phone</th><th>Email</th></tr>`
+        output += `<tr><td>${jsondata.name}</td><td>${jsondata.surname}</td><td>${jsondata.address}</td><td>${jsondata.phone}</td><td>${jsondata.email}</td></tr>`
+        output += `</table>`
+    })
+
+    res.send(output);
+
   })
   //metodai kuriuos naudosime
   //.get()
