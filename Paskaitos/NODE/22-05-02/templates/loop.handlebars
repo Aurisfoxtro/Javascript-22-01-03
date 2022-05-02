@@ -1,0 +1,39 @@
+{{!-- Kintamuju atvaizdavimas --}}
+{{vardas}}
+{{pavarde}} <br />
+{{skaiciai}}
+
+{{!-- If condicija handlebars sablone, tikrina tik ar kintamasis yra --}}
+
+{{#if if}}
+    If yra true
+{{/if}}
+
+{{#if nera}}
+ Toks tekstas neatvaizduojamas
+{{/if}}
+
+{{!-- Else kondicija --}}
+
+{{#if nera}}
+    If tekstas atvaizduojamas
+{{else}}
+   Else tekstas atvaizduojamas
+{{/if}}
+
+{{!-- Ciklai --}}
+
+{{!-- ciklas masyvui --}}
+{{#each skaiciai}}
+<li>{{this}}</li>
+{{/each}}
+
+{{!-- objekto ciklas --}}
+
+{{#each objektas}}
+    <li>{{this}}</li>
+{{/each}}
+
+{{!-- Duomenu paemimas is objekto --}}
+
+{{objektas.tipas}}

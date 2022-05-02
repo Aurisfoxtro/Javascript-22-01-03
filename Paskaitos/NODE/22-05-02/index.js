@@ -1,4 +1,5 @@
 import express from 'express'
+import {create} from 'express-handlebars'
 import {dirname} from 'path'
 import { fileURLToPath } from 'url'
 
@@ -8,17 +9,42 @@ import fs from 'fs/promises'
 
 
 const app = express()
+const hbs = create({ /* config */})
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+app.set('views', './templates');
+
 const credentials = {
     login: 'aurimas',
     password: 'labas'
 }
-console.log(import.meta)
+// console.log(import.meta)
 
-// app.get('/', function (req, res) {
-//     res.send('Titulinis')
-//   })
+//handlebars naudojimas, kvieciamas sablonas 'forma' su render metodu
+app.get('/', function (req, res) {
+    let name = 'Antanas'
+    //kintamojo perdavimas per objekta i 'forma' handlebar'a
+    res.render('forma', {name, indeksas: 12})
+  })
   
+  app.get('/loop', function (req, res) {
+    let variables = {
+        vardas: 'Julijus',
+        pavarde: 'Cezaris',
+        skaiciai: [20, 15, 100, 999999],
+        if: true,
+        nera: false,
+        objektas: {
+            tipas: 'Automobilis',
+            metai: 1990,
+            ta: '2023-12-01'
+        }
+    }
+    res.render('loop', variables)
+  })
+
   app.get('/home', function (req, res) {
     let jsonString = {
         reiksmes : [10, 50, "String", 10]
@@ -35,12 +61,15 @@ console.log(import.meta)
       res.send('<h1>Perku</h1>')
   })
   
-  app.get('/', (req, res) => {
+//   app.get('/', (req, res) => {
+
     // app.get('/query-submition', (req, res) => {
     // res.status(404) //grazinamas uzklausos statusas 404
     // res.send('<form><input/></form>') //hardkodintas html kodas
-    res.sendFile(__dirname + '/templates/forma.html')
-  })
+    
+//     res.sendFile(__dirname + '/templates/forma.html')
+//   })
+
   app.get('/send', (req, res) =>{
       res.sendFile(__dirname + '/templates/duomenys.html')
   })
