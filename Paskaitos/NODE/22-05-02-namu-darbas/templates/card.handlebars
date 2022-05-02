@@ -1,4 +1,41 @@
 <div class="container">
-    <div class="image-box"></div>
-    <div class="info-box">Testas</div>
+    <div class="container-left">
+        <div class="image-box"><img src={{{image}}} alt="Avatar photo" /></div>
+        <div class="name">{{{name}}}</div>
+        <div class="company">{{{company}}}</div>
+    </div>
+    <div class="container-right">
+        <div class="info">{{{phone}}}</div>
+        <div class="info">{{{address}}}</div>
+        <div class="info">{{{car}}}</div>
+    </div>
 </div>
+<style>
+    .container{
+        width: 600px;
+        height: 300px;
+        margin-top: 20%;
+        margin-left: 20%;
+        display:flex;
+        
+    }
+    .container-left{
+        padding-top: 10%;
+        font-size: 2rem;
+        text-align: center;
+        color: #222;
+        width: 50%;
+        background-color: antiquewhite;
+        border: 1px solid #222;
+    }
+    .container-right{
+        padding-top: 18%;
+        font-size: 1.5rem;
+        color:antiquewhite;
+        width: 50%;
+        background-color: #222;
+    }
+    .info{
+        margin-left: 10%;
+    }
+</style>
