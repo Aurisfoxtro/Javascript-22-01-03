@@ -1,12 +1,59 @@
 <div class="container">
-<div>Klientų administravimas</div>
-<div>{{{user}}}</div>
-<a href="/logout">Logout</a>
+    <div class="info">Klientų administravimas</div>
+    <div class="info">{{{user}}}</div>
+    <a class="info" href="/logout">Logout</a>
+</div>
+<div>
+    <a href="/form">Pridėti naują klientą</a>
+    {{#if parsedJson}}
+        <table class="table">
+            <thead>
+                <th>Įmonės pavadinimas</th>
+                <th>Vardas</th>
+                <th>Pavardė</th>
+                <th>Adresas</th>
+                <th>Telefono nr.</th>
+                <th>El. pašto adresas</th>
+                <th>Įmonės kodas</th>
+                <th></th>
+            </thead>
+            <tbody>
+                {{#each parsedJson}}
+                <tr>
+                    <td>{{company}}</td>
+                    <td>{{name}}</td>
+                    <td>{{surname}}</td>
+                    <td>{{address}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{email}}</td>
+                    <td>{{pvm}}</td>
+                    <td><button class="btn btn-danger delete-button" data-id="{{@index}}">Trinti</button></td>
+                </tr>
+                
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            {{message}}
+        {{/if}}
 </div>
 <style>
     .container{
     display: flex;
-    
+    margin-left: 70%;
+    }
+    .info{
+        color: #fff;
+        margin-left: 2%;
+    }
+    table{
+        color: #fff;
+    }
+    th{
+        color: #fff;
+    }
+    td{
+        color: #fff;
     }
 </style>
 
