@@ -1,0 +1,61 @@
+
+<div class="container">
+    <div class="info">Klientų administravimas</div>
+    <div class="info">{{{user}}}</div>
+    <a class="info" href="/logout">Logout</a>
+</div>
+<div>
+    {{!-- <a href="/form">Pridėti naują klientą</a> --}}
+    {{#if parsedJson}}
+        <table class="table">
+            <thead>
+                <th>Siuntimas</th>
+                <th>Filialas</th>
+                <th>Data ir laikas</th>
+                <th>Vardas</th>
+                <th>Pavardė</th>
+                <th>El. pašto adresas</th>
+                <th>Telefono nr.</th>
+                <th>Amžius</th>
+                <th>Skundžiasi</th>
+                <th>Patvirtintas</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                {{#each parsedJson}}
+                <tr>
+                    <td>{{permit}}</td>
+                    <td>{{branch}}</td>
+                    <td>{{datetime}}</td>
+                    <td>{{firstName}}</td>
+                    <td>{{lastName}}</td>
+                    <td>{{email}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{age}}</td>
+                    <td>{{symptoms}}</td>
+                    <td>{{confirmed}}</td>
+                    <td><button class="btn btn-info">Patvirtinti</button></td>
+                    <td><button class="btn btn-danger delete-button" data-id="{{@index}}">Trinti</button></td>
+                </tr>
+                
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+            {{message}}
+        {{/if}}
+</div>
+<style>
+    .container{
+    display: flex;
+    margin-left: 70%;
+    }
+    .info{
+        color: #000;
+        margin-left: 2%;
+    }
+
+</style>
+
+{{!-- <img src="/assets/img/download.png" alt="" /> --}}

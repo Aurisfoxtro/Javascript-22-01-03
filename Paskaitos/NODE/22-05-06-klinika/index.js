@@ -8,6 +8,8 @@ import session from 'express-session'
 import {port, url} from "./utils/helper.js"
 
 import registration from "./controllers/registration.js"
+import login from "./controllers/login.js"
+import clients from "./controllers/clients.js"
 
 const app = express()
 const hbs = create({})
@@ -33,5 +35,7 @@ app.use(session({
 }))
 
 app.use('/', registration)
+app.use('/', login)
+app.use('/', clients)
 
 app.listen(port)

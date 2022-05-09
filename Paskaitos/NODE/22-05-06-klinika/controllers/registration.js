@@ -16,7 +16,10 @@ Router.post('/registration-submit', async (req, res)=>{
         try{
             const data = await fs.readFile('./database.json', 'utf8')
             let parsedJson = JSON.parse(data)
-            parsedJson.push(req.body)
+            console.log("parsedJson", parsedJson)
+            let nauji_duomenys = req.body;
+            nauji_duomenys.confirmed = false;
+            parsedJson.push(nauji_duomenys)
             json = parsedJson
         }
         catch{
@@ -32,6 +35,5 @@ Router.post('/registration-submit', async (req, res)=>{
         res.send('Negauti duomenys')
     }
 })
-
 
 export default Router
