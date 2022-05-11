@@ -1,4 +1,26 @@
+{{#if photos}}
+<div class="gallery">
+    <ul>
+        {{#each photos}}
+        <li data-id="{{id}}"><img src="/uploads/{{picture}}" alt="">
+            {{#if author}}
+                <p>{{author}}</p>
+            {{else}}
+                <p>Autorius nežinomas</p>
+            {{/if}}
+            {{#if description}}
+                <p>{{description}}</p>
+            {{else}}
+                <p>Aprašymas nereikalingas</p>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
 <form method="POST" action="/upload_file" enctype="multipart/form-data">
-    <input type="file" name="photo">
+    <input type="file" name="photo"><br />
+    <input type="text" name="author" placeholder="author..."><br />
+    <textarea type="textarea" name="description" rows="6"></textarea><br />
     <button type="submit">Siųsti</button>
 </form>
