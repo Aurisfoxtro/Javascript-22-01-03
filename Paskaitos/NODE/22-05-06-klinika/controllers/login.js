@@ -15,6 +15,12 @@ Router.get('/admin', (req, res)=>{
     }
 })
 
+Router.get('/logout', (req, res)=>{
+  req.session.destroy(function() {
+      res.clearCookie('connect.sid', { path: '/admin' }).status(200).redirect('/admin');
+    });
+})
+
 Router.post('/login-submit', (req, res)=>{
     //req.query tai kas yra perduodama adrese
     //req.params tai kas perduodama uz kiekvieno slasho
@@ -36,11 +42,8 @@ Router.post('/login-submit', (req, res)=>{
         }
   
       } else {
-        res.redirect(url) //Peradresavimas
-      }
-    
-    // console.log(req.body)
-    // res.send('Pavyko')
+        res.redirect(url)
+      }  
 })
 
 export default Router
