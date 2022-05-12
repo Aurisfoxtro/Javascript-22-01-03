@@ -6,7 +6,8 @@
 import express from 'express'
 import {create} from 'express-handlebars'
 import {database} from "./db/connection.js";
-import {insert, getAll, _delete, update} from "./services/tasks.js";
+
+import tasks from "./controller/tasks.js"
 
 const app = express();
 
@@ -17,30 +18,32 @@ app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 app.set('views', './templates')
  
-//POST metodu perduodamu duomenu  
+//POST metodu perduodamu duomenu konfiguracija 
 app.use( express.urlencoded({
   extended: false
 }))
 
-app.get('/', async (req, res)=>{
-    const entries = await getAll()
-    res.render('tasks', {tasks: entries})
-})
+//Perduodamu duomenu body lygmenyje json formatu issifravimas
+app.use(express.json())
+
+app.use('/assets', express.static('assets'))
+
+app.use('/', tasks)
 
 app.listen(3000)
 
 //Įrašo pridėjimas
-await insert({task: 'Išplauti indus', done: 0})
+// await insert({task: 'Išplauti indus', done: 0})
 
-try{
-    await _delete(1)
-}catch{
-    console.log('Ištrinti nepavyko')
-}
-// console.table(await getAll())
-try{
-    await update(4, {task: 'Išvesti šunį'})
-    await update(5, {task: 'Išvesti šunį', done: 1})
-}catch{
-    console.log('Nepavyko atnaujinti įrašo')
-}
+// try{
+//     await _delete(1)
+// }catch{
+//     console.log('Ištrinti nepavyko')
+// }
+// // console.table(await getAll())
+// try{
+//     await update(4, {task: 'Išvesti šunį'})
+//     await update(5, {task: 'Išvesti šunį', done: 1})
+// }catch{
+//     console.log('Nepavyko atnaujinti įrašo')
+// }

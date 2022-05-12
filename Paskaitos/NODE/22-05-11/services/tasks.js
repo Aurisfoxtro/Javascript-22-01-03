@@ -20,12 +20,16 @@ export const insert = async (data) =>{
     await task.save()
 }
 
-export const update = async (id, data)=>{
+export const update = async (id, data, done = false)=>{
     const task = await getById(id)
     const taskUpdated = data.task && data.task != task.task
+    const taskDone = data.done && data.done != task.done
 
-    if(!taskUpdated)
+    if(!taskUpdated && !done)
         return false
+
+    if(!taskDone && done)
+        return false 
 
     Object.assign(task, data)
     await task.save()
