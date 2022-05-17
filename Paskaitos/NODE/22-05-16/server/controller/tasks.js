@@ -51,7 +51,7 @@ Router.delete('/task/delete/:id', async (req, res)=>{
     }
 })
 
-Router.post('/', async (req, res)=>{
+Router.post('/add-task', async (req, res)=>{
     try{
         await insert(req.body)
         res.json({status:'success', message: 'Užduotis sėkmingai įterpta'})
