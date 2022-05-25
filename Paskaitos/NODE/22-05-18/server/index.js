@@ -16,7 +16,7 @@ app.use( express.urlencoded({
 
 //Perduodamu duomenu body lygmenyje json formatu issifravimas, kad galetume naudoti json bodyje
 app.use(express.json())
-
+app.use('/uploads', express.static('uploads'))
 app.use('/api/users/', users)
 app.use('/api/profile/', profile)
 
