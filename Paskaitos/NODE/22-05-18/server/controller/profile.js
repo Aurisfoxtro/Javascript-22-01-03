@@ -3,8 +3,9 @@ import Joi from 'joi'
 import multer from 'multer'
 import{access, mkdir} from 'fs/promises'
 import validator from '../middleware/validator.js'
-import { exists, insert, getAll } from '../service/profile.js'
-import {insert as portfolioInsert} from '../service/portfolio.js'
+import { exists, insert, getAll, getById } from '../service/profile.js'
+import {insert as portfolioInsert, getAll as portfolioItems} from '../service/portfolio.js'
+import {Op} from 'sequelize'
 
 const Router = express.Router()
 
@@ -66,6 +67,35 @@ Router.get('/', async(req,res)=>{
     const profiles = await getAll()
     if(profiles){
         res.json({message: profiles, status: 'success'})
+    }else{
+        res.json({message: 'Įvyko klaida', status: 'danger'})
+    }
+})
+
+Router.get('/filter/hourly_rate/:rate', async(req,res)=>{
+    const rate = req.params.rate
+    const profiles = await getAll({
+        where: {
+            hourly_rate: {
+                [Op.gte]: rate
+            }
+        }
+    })
+    if(profiles){
+        res.json({message: profiles, status: 'success'})
+    }else{
+        res.json({message: 'Įvyko klaida', status: 'danger'})
+    }
+})
+
+Router.get('/single/:id', async (req, res)=>{
+    const id = req.params.id
+    const profile = await getById(id)
+    if(profile){
+        const portfolio = await portfolioItems(profile.id)
+        if(portfolio)
+            profile.portfolio = portfolio[0].dataValues
+        res.json({message: profile, status: 'success'})
     }else{
         res.json({message: 'Įvyko klaida', status: 'danger'})
     }

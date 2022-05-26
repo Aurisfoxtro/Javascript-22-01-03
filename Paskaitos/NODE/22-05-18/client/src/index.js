@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Registration from './components/registration/Registration.js'
 import ProfileCreate from './components/profile-create/ProfileCreate.js'
 import ProfileList from './components/profile-list/ProfileList.js'
+import Profile from './components/profile/Profile.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
         <Route path="/" element={<ProfileList />}></Route>
         <Route path="/registration" element={<Registration/>}></Route>
         <Route path="/create-profile" element={<ProfileCreate />}></Route>
+        <Route path="/profile/:id" element={<Profile />}></Route>
       </Routes>
     </Router>
   </React.StrictMode>

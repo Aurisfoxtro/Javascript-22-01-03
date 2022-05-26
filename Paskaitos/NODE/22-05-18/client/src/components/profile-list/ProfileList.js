@@ -7,6 +7,7 @@ import ProfileBox from '../profile-box/ProfileBox.js'
 export default () => {
 
     const [profiles, setProfiles] = useState([])
+    const [filter, setFilter] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
@@ -37,12 +38,45 @@ export default () => {
         )
     }
 
+    const Filter = () => {
+        return(
+        <div className="Filter">
+            <label>Filtravimas pagal valandinį įkainį:</label>
+            <input type="number" min="0" value={filter} onChange={e=> handleFilterChange(e)}/>
+            <button onClick={handleFilter}>Filtruoti</button>
+        </div>
+        )
+    }
+
+    const handleFilterChange = (e)=>{
+        setFilter(e.target.value)
+    }
+
+    const handleFilter = () =>{
+        setIsLoading(true)
+        axios.get('/api/profile/filter/hourly_rate/' + filter)
+        .then(resp => {
+            setIsLoading(false)
+
+            if(resp.data.status === 'success')
+                setProfiles(resp.data.message)
+        })
+        .catch(()=>{
+            setIsLoading(false)
+            // setMessages({message: 'Įvyko serverio klaida', status: 'danger'})
+        })
+    }
+
     return(
         <Container>
             <h1>Freelancerių sąrašas</h1>
             {isLoading ?
-             'Duomenys kraunasi...':
-             <ListContainer />
+             'Duomenys kraunasi...':(
+                 <>
+                    <Filter />
+                    <ListContainer />
+                </>
+             )
              }
         </Container>
     )
