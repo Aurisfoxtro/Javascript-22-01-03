@@ -3,7 +3,7 @@ import Joi from 'joi'
 import multer from 'multer'
 import{access, mkdir} from 'fs/promises'
 import validator from '../middleware/validator.js'
-import { exists, insert, getAll, getById } from '../service/profile.js'
+import { exists, insert, getAll, getById, getByUserId, update } from '../service/profile.js'
 import {insert as portfolioInsert, getAll as portfolioItems} from '../service/portfolio.js'
 import {Op} from 'sequelize'
 
@@ -72,6 +72,32 @@ Router.get('/', async(req,res)=>{
     }
 })
 
+Router.get('/sort/asc', async(req,res)=>{
+    const profiles = await getAll({
+        order: [
+            ['headline', 'ASC']
+        ]
+    })
+    if(profiles){
+        res.json({message: profiles, status: 'success'})
+    }else{
+        res.json({message: 'Įvyko klaida', status: 'danger'})
+    }
+})
+
+Router.get('/sort/desc', async(req,res)=>{
+    const profiles = await getAll({
+        order: [
+            ['headline', 'DESC']
+        ]
+    })
+    if(profiles){
+        res.json({message: profiles, status: 'success'})
+    }else{
+        res.json({message: 'Įvyko klaida', status: 'danger'})
+    }
+})
+
 Router.get('/filter/hourly_rate/:rate', async(req,res)=>{
     const rate = req.params.rate
     const profiles = await getAll({
@@ -131,6 +157,30 @@ Router.post('/create', profileFileFields, profileSchema, async (req, res) =>{
             res.json({status: 'danger', message: 'Įvyko klaida'})
         }
     } 
+})
+
+Router.get('/edit/:user_id', async (req, res)=>{
+    const user_id = req.params.user_id
+    const profile = await getByUserId(user_id)
+    if(profile){
+        const portfolio = await portfolioItems(profile.id)
+        if(portfolio)
+            profile.portfolio = portfolio
+        res.json({message: profile, status: 'success'})
+    }else{
+        res.json({message: 'Įvyko klaida', status: 'danger'})
+    }
+})
+
+Router.put('/update/', profileSchema, async (req, res)=>{
+    const user_id = req.body.UserId  //Paimame userio id is perduodamos informacijos
+    const profile = await getByUserId(user_id) //susirandam profilio informacija pagal userio id
+
+    if(await update(profile.id, req.body)){
+        res.json({message: 'Profilis sėkmingai atnaujintas', status: 'success'})
+    }else{
+        res.json({message: 'Įvyko klaida', status: 'danger'})
+    }
 })
 
 export default Router

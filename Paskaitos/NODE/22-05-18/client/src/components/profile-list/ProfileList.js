@@ -23,7 +23,33 @@ export default () => {
             // setMessages({message: 'Įvyko serverio klaida', status: 'danger'})
         })
     }, [])
+    const sortAscending = ()=>{
+        axios.get('/api/profile/sort/asc')
+        .then(resp => {
+            setIsLoading(false)
 
+            if(resp.data.status === 'success')
+                setProfiles(resp.data.message)
+        })
+        .catch(()=>{
+            setIsLoading(false)
+            // setMessages({message: 'Įvyko serverio klaida', status: 'danger'})
+        })
+    }
+
+    const sortDescending = () => {
+        axios.get('/api/profile/sort/desc')
+        .then(resp => {
+            setIsLoading(false)
+
+            if(resp.data.status === 'success')
+                setProfiles(resp.data.message)
+        })
+        .catch(()=>{
+            setIsLoading(false)
+            // setMessages({message: 'Įvyko serverio klaida', status: 'danger'})
+        })
+    }
     const List = () => {
         return profiles.map((value, index)=>(
             <ProfileBox key={index} profile={value}/>
@@ -38,15 +64,15 @@ export default () => {
         )
     }
 
-    const Filter = () => {
-        return(
-        <div className="Filter">
-            <label>Filtravimas pagal valandinį įkainį:</label>
-            <input type="number" min="0" value={filter} onChange={e=> handleFilterChange(e)}/>
-            <button onClick={handleFilter}>Filtruoti</button>
-        </div>
-        )
-    }
+    // const Filter = () => {
+    //     return(
+    //     <div className="Filter">
+    //         <label>Filtravimas pagal valandinį įkainį:</label>
+    //         <input type="number" min="0" value={filter} onChange={e=> handleFilterChange(e)}/>
+    //         <button onClick={handleFilter}>Filtruoti</button>
+    //     </div>
+    //     )
+    // }
 
     const handleFilterChange = (e)=>{
         setFilter(e.target.value)
@@ -73,7 +99,16 @@ export default () => {
             {isLoading ?
              'Duomenys kraunasi...':(
                  <>
-                    <Filter />
+                    {/* <Filter /> */}
+                    <div className="Filter">
+                        <label>Filtravimas pagal valandinį įkainį:</label>
+                        <input type="number" min="0" value={filter} onChange={e=> handleFilterChange(e)}/>
+                        <button onClick={handleFilter}>Filtruoti</button>
+                    </div>
+                    <div className="sorting">
+                        <button className="btn btn-primary mt-3" onClick={sortAscending}>Didėjančia tvarka</button>
+                        <button className="btn btn-primary mt-3" onClick={sortDescending}>Mažėjančia tvarka</button>
+                    </div>
                     <ListContainer />
                 </>
              )

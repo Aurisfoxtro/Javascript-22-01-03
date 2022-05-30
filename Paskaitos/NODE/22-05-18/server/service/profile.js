@@ -16,6 +16,14 @@ export const getById = async (id) =>{
     }
 }
 
+export const getByUserId = async (id) =>{
+    try{
+        return await database.Profile.findOne({where:{UserId: id}}, {raw: true})
+    }catch{
+        return false
+    }
+}
+
 export const exists = async (fields = {}) => {
     try{
         const count = await database.Profile.count({
