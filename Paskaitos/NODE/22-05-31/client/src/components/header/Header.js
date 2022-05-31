@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 
-export default ()=>{
+export default (props)=>{
     return(
             <div className="header mb-5">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,12 +22,15 @@ export default ()=>{
                         <li className="nav-item">
                             <Link className="nav-link" to="/registration">Registracija</Link>
                             </li>
+                        {props.loggedIn && (
+                        <>
                         <li className="nav-item">
                             <Link className="nav-link" to="/create-profile">Sukurti profilį</Link>
                             </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/edit">Redaguoti profilį</Link>
                         </li>
+                        </>)}
                     </ul>
                 </div>
                 </div>
